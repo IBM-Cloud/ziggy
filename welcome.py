@@ -13,8 +13,11 @@
 # limitations under the License.
 
 import os
+import urllib
+
 from flask import Flask, jsonify
 from rauth import OAuth1Service
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -29,15 +32,9 @@ def WelcomeToMyapp():
 @app.route('/setup')
 def Setup():
     
-    genius = OAuth1Service(
-    name='genius',
-    consumer_key='iH7XHxG2VqQTfDsZ1GljmYAPg_4zwtkPWy6PGPXGhorX6VRc0FwqNJotTvmW47p5',
-    consumer_secret='_XRXaFUMmyYxqJQH4Cg03IWnCgns5OhpeKcfNAT1FFFYNgQ-aabsGUu7H9eu-Vnpeqz8d7EWuoeh5UWR7h15tw',
-    request_token_url='https://api.twitter.com/oauth/request_token',
-    access_token_url='https://api.twitter.com/oauth/access_token',
-    authorize_url='https://api.twitter.com/oauth/authorize',
-    base_url='https://api.twitter.com/1.1/')
-    
+    r = urllib.urlopen('http://www.azlyrics.com/lyrics/davidbowie/littlewonder.html').read()
+    soup = BeautifulSoup(r)
+    print soup.find_all('br')
     return 'Gathering data ...'
 
 @app.route('/api/people')
