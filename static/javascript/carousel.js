@@ -15,6 +15,13 @@ window.onload = function () {
             style: "Glam Rock",
             date: "1972-73"
     },
+
+        {
+            name: "Berlin Trilogy",
+            image: "bowie-berlin.png",
+            style: "Industrial",
+            date: "1976-79"
+    },
         {
             name: "Pierrot",
             image: "bowie-pierrot.png",
