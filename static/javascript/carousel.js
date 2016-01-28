@@ -16,10 +16,16 @@ window.onload = function () {
             date: "1972-73"
     },
         {
+            name: "Pierrot",
+            image: "bowie-pierrot.png",
+            style: "New Wave",
+            date: "1980-83"
+    },
+        {
             name: "Modern Love",
             image: "bowie-modern.png",
-            style: "Pop, New wave",
-            date: "1980-88"
+            style: "Pop",
+            date: "1984-88"
     },
         {
             name: "Earthling",
