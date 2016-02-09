@@ -48,14 +48,14 @@
 }
 
 .carousel-seat {
-    background: #4c4b52;
+    background: #fdf9f9;
     flex: 1 0 100%;
     order: 2;
-    border-right: 1px solid #5b5a62;
+    /*    border-right: 1px solid #f6cac9;*/
 }
 
 .carousel-seat:nth-child(even) {
-    background: #4c4b52;
+    background: #fdf9f9;
     /* 9896A4; */
 }
 
@@ -87,7 +87,7 @@ h2 {
 .controls {
     padding: 2em;
     text-align: center;
-    border-top: 1px solid #5b5a62;
+    border-top: 1px solid #f6cac9;
 }
 
 .controls button {
@@ -107,9 +107,10 @@ h2 {
 }
 
 .holder {
-    /*    background-color: tomato;*/
-    padding: 5px;
-    margin: 10px;
-    color: white;
     text-align: center;
+    padding: 20px;
+    margin: 50px;
+    border: 1px solid #fae4e4;
+    background: whitesmoke;
+    border-radius: 6px;
 }
