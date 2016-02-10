@@ -235,7 +235,7 @@ a {
 }
 
 div#carousel {
-    margin: 50px;
+    /*    margin: 50px;*/
     margin-top: 0;
 }
 
@@ -264,6 +264,28 @@ div#carousel {
     line-height: 1;
     opacity: .75;
     color: #ccdbe6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li.slick-active button:before {
+    /*    opacity: .75;*/
+    color: white;
+}
+
+.slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '•';
+    text-align: center;
+    opacity: .3;
+    color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
