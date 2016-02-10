@@ -2,3 +2,4 @@ Flask==0.10.1
 rauth==0.7.2
 beautifulsoup4==4.4.1
 watson-developer-cloud==0.4.1
+cloudant==2.0.0b1
