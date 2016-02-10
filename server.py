@@ -49,8 +49,11 @@ def assemble_persona_text(persona):
     text = ''
     for album in client['personas'][persona]['albums']:
         for song in client['albums'][album]['songs']:
-            if 'lyrics' in client['songs'][song]:
-                text += client['songs'][song]['lyrics']
+            try:
+                if 'lyrics' in client['songs'][song]:
+                    text += client['songs'][song]['lyrics']
+            except KeyError as e:
+                print e  #just swallow it silently for now ToDo: something better...
     return text
 
 ## Begin Flask server
