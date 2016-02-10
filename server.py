@@ -41,6 +41,10 @@ for db in databases:
     if db not in client.all_dbs():
         raise RuntimeError("Database " + db + " not found, please ensure you have the needed data.")
 
+cached_insights = {}
+for persona in client['personas']:
+    cached_insights[persona['_id']] = None
+
 def assemble_persona_text(persona):
     text = ''
     for album in client['personas'][persona]['albums']:
@@ -73,7 +77,12 @@ def GetPersonas():
 
 @app.route('/api/persona/<persona>')
 def GetPersona(persona):
-    insight = personality_insights.profile(json.dumps({'text': assemble_persona_text(persona), 'contenttype': 'text/html'}))
+    if cached_insights[persona] is None:
+        insight = personality_insights.profile(json.dumps({'text': assemble_persona_text(persona), 'contenttype': 'text/html'}))
+        cached_insights[persona] = insight
+    else:
+        insight = cached_insights[persona]
+
     return jsonify(results=insight)
 
 port = os.getenv('PORT', '5000')
