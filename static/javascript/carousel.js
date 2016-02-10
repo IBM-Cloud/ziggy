@@ -215,9 +215,9 @@
       $('.carousel').slick({
           //          centerMode: true,
           //        centerPadding: '60px',
-          slidesToShow: 3,
+          slidesToShow: 1,
           autoplay: true,
-          autoplaySpeed: 4000,
+          autoplaySpeed: 5000,
           dots: true,
           arrows: true,
           responsive: [

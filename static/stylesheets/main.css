@@ -1,7 +1,7 @@
 .hickory {
     padding: 0;
     margin: 0;
-    background-color: #1a608f; //#9f805e;
+    background-color: #33729b; //#9f805e;
     font-family: 'Averia Sans Libre', cursive;
     -webkit-font-smoothing: antialiased;
 }
@@ -24,7 +24,7 @@ a {
 .top {
     margin: 0;
     padding: 0;
-    background: #014f83;
+    background: #1a608f;
     height: 140px;
     border-bottom: 1px solid #33729b;
     display: flex;
