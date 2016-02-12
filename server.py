@@ -17,6 +17,14 @@ import json
 from flask import Flask, jsonify
 from cloudant.account import Cloudant
 from watson_developer_cloud import PersonalityInsightsV2 as PersonalityInsights
+from twitter import *
+
+if 'TWITTER_CREDS' not in os.environ:
+    raise RuntimeError('TWITTER_CREDS not found.')
+else:
+    TWITTER = json.loads(os.environ['TWITTER_CREDS'])
+
+twitter = Twitter(auth = OAuth(TWITTER["access_key"], TWITTER["access_secret"], TWITTER["consumer_key"], TWITTER["consumer_secret"]))
 
 if 'VCAP_SERVICES' not in os.environ:
     raise RuntimeError("VCAP_SERVICES not found.")
@@ -56,6 +64,21 @@ def assemble_persona_text(persona):
                 print e  #just swallow it silently for now ToDo: something better...
     return text
 
+def pull_tweets_by_screenname(screenname):
+    tweets = response = twitter.statuses.user_timeline(screen_name = screenname, count = 200)
+    while len(response) > 0:
+        print 'fetching more tweets for ' + screenname
+        response = twitter.statuses.user_timeline(screen_name = screenname, count = 200, max_id = tweets[-1]['id'] - 1)
+        tweets.extend(response)
+    print 'total of ' + str(len(tweets)) + ' found for user ' + screenname
+    return tweets
+
+def aggregate_tweet_string(tweets):
+    aggregate_text = ''
+    for tweet in tweets:
+        aggregate_text += tweet['text'] + "\n"
+    return aggregate_text
+
 ## Begin Flask server
 app = Flask(__name__)
 if 'FLASK_DEBUG' in os.environ:
@@ -86,6 +109,12 @@ def GetPersona(persona):
     else:
         insight = cached_insights[persona]
 
+    return jsonify(results=insight)
+
+@app.route('/api/twitter/<screenname>')
+def InsightsFromTwitter(screenname):
+    tweets = pull_tweets_by_screenname(screenname)
+    insight = personality_insights.profile(json.dumps({'text': aggregate_tweet_string(tweets)}, indent=2))
     return jsonify(results=insight)
 
 port = os.getenv('PORT', '5000')
