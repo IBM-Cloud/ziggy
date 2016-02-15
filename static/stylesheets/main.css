@@ -1,4 +1,4 @@
-.hickory {
+.ziggy {
     padding: 0;
     margin: 0;
     background-color: #33729b; //#9f805e;
@@ -57,7 +57,6 @@ a {
 
 .holder {
     text-align: center;
-    padding: 20px;
     margin: 50px;
     /*    border: 1px solid #8d7254;*/
     /*    background: #9f805e;*/
@@ -94,8 +93,8 @@ a {
 }
 
 .imageBowie {
-    width: 257px; //214px;
-    height: 600px; //500px;
+    width: 214px; // 257px; 
+    height: 500px; // 600px;
     display: flex;
     align-self: center;
 }
@@ -288,4 +287,8 @@ div#carousel {
     color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-slide {
+    outline: none
 }

@@ -149,16 +149,25 @@
           date.innerHTML = bowies[count].date;
           date.className = "timeBowie";
 
-          holder.appendChild(index);
+          //          holder.appendChild(index);
 
           holder.appendChild(image);
           holder.appendChild(description);
           holder.appendChild(style);
           holder.appendChild(date);
+          holder.appendChild(index);
+          holder.id = bowies[count].name;
+
+          holder.onclick = shareInsight;
 
           item.appendChild(holder);
           carousel.appendChild(item);
       }
+  }
+
+  function shareInsight(e) {
+      var path = './static/personality.html?persona=' + e.currentTarget.id;
+      window.open(path, '_self', false);
   }
 
   function circleBowies() {
