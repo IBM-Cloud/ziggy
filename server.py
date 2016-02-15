@@ -14,6 +14,7 @@
 
 import os
 import json
+import requests
 from flask import Flask, jsonify
 from cloudant.account import Cloudant
 from watson_developer_cloud import PersonalityInsightsV2 as PersonalityInsights
@@ -119,8 +120,11 @@ def Welcome():
 
 @app.route('/setup')
 def Setup():
-    return 'Setup complete.'
-
+    personas = GetPersonas()
+    for persona in json.loads(personas.data)['results']:
+        print 'Getting persona ' + persona['name']
+        GetPersona(persona['name'])
+    return 'Setup complete!'
 
 @app.route('/api/personas')
 def GetPersonas():
