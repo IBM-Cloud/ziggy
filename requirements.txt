@@ -4,4 +4,5 @@ beautifulsoup4==4.4.1
 watson-developer-cloud==0.4.1
 cloudant==2.0.0b1
 twitter==1.17.1
+scipy==0.17.0
 
