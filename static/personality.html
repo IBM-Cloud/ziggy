@@ -1,20 +1,102 @@
 <html>
 
 <head>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/personality.css" />
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="./javascript/personality.js"></script>
     <script type="text/javascript">
     </script>
 </head>
 
-<body onload="drawChart()">
+<body class="persona" onload="drawChart()">
 
     <div class="banner">
-        <!-- div class="home">Home</div -->
+        <div class="home">Home</div>
+        <div class="title">Bowie</div>
+        <div class="social">
+            <div class="twitter">Twitter</div>
+            <div class="facebook">Facebook</div>
+        </div>
+    </div>
+
+    <div id="banner" class="banner-image" style="background-image: url(&quot;images/header/earthling.png&quot;); background-size: cover;"></div>
+
+    <div class="floatingbox">
+        <div class="avatar-container">
+
+            <div class="avatar-mid"></div>
+            <div class="avatar-right"></div>
+        </div>
     </div>
 
 
-    <div id="insights"></div>
+    <div class="meta">
+        <div class="avatar-left">
+            <div class="avatar-canopy">
+                <div id="avatar" class="avatar"></div>
+
+            </div>
+        </div>
+        <div class="meta-bar">
+            <div class="words">
+                <div class="label">WORDS</div>
+                <div id="word-count" class="count" style="color: rgb(123, 194, 83);">6000</div>
+            </div>
+            <div class="following">
+                <div class="label">FOLLOWING</div>
+                <div id="word-count" class="count" style="color: rgb(123, 194, 83);">9</div>
+            </div>
+            <div class="followers">
+                <div class="label">FOLLOWERS</div>
+                <div id="word-count" class="count" style="color: rgb(123, 194, 83);">9</div>
+            </div>
+            <div class="likes">
+                <div class="label">LIKES</div>
+                <div id="word-count" class="count" style="color: rgb(123, 194, 83);">9</div>
+            </div>
+        </div>
+        <div class="meta-pad"></div>
+    </div>
+    <div class="columns">
+        <div class="left">
+            <div id="personaName" class="personaName"></div>
+            <div id="twitterName" class="twitterName">@DavidBowieReal</div>
+            <div id="description" class="description"></div>
+        </div>
+        <div class="middle" id="tweets">
+            <div class="tweetHeading">
+                <div class="tweetHeadinglabel">Tweets</div>
+
+            </div>
+
+            <div class="tweet">
+
+                <div class="icon"></div>
+                <div class="content">
+                    <div class="from">
+                        <div class="fromName"></div>
+                        <div class="date"></div>
+                    </div>
+                    <div class="tweetContent"></div>
+                    <div class="chart"></div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="right"></div>
+    </div>
+
 </body>
+
+<div id="insights"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/current/third_party/d3/d3.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/current/third_party/d3/d3.sankey.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/current/js/jsapi_compiled_format_module.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/current/js/jsapi_compiled_default_module.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/current/js/jsapi_compiled_ui_module.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/current/js/jsapi_compiled_sankey_module.js"></script>
 
 </html>
