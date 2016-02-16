@@ -6,7 +6,7 @@ applications:
   name: ziggy
   host: ziggy
   disk_quota: 1024M
-  buildpack: https://github.com/cloudfoundry/python-buildpack.git
+  buildpack: https://github.com/IBM-Bluemix/python-buildpack-scipy.git
   services:
   - cloudant_ziggy
   - insights_ziggy
