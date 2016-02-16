@@ -24,13 +24,14 @@ http://blog.danwin.com/examples-of-web-scraping-in-python-3-x-for-data-journalis
     * `export VCAP_SERVICES='{"cloudantNoSQLDB":[{"name" : "someName","label" : "cloudantNoSQLDB","plan" : "Shared","credentials" : {"username" : "usernamegoeshere","password" : "mypassword","host" : "thehost","port" : 443,"url" : "the host"}}],"personality_insights":[{"credentials":{"password":"password","url":"url","username":"someusername"},"label":"personality_insights","name":"some name","plan":"tiered"}]}'`
     * `export TWITTER_CREDS='{"access_key": "my key", "access_secret": "my secret", "consumer_key": "my consumer key", "consumer_secret": "my consumer secret"}'`
 1. Run `python ./server.py` to start your server.
-1. Open a browser to [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+1. Open a browser to [http://127.0.0.1:5000/setup](http://127.0.0.1:5000/setup)
 
 ##### Deploy to Bluemix
 
 1. Create services in your Bluemix org and space that will align with the services expected in `manifest.yml`.
     * `cf create-service cloudantNoSQLDB Shared cloudant_ziggy`
     * `cf create-service personality_insights tiered insights_ziggy`
+    * Once the application is running be sure to initially request `/setup` from a browser to cache all personas.
 
 ##### ToDo: Document needed lyrics database...  Probably can't include ziggy-scrape repo if this is made public.
 
