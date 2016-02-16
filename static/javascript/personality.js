@@ -66,6 +66,8 @@ var mugshots = [
     }
 ]
 
+var thisPersona;
+
 function drawChart() {
     google.charts.load('current', {
         'packages': ['sankey']
@@ -84,7 +86,7 @@ function draw(chartdata) {
     // Sets chart options.
     var options = {
         width: 500,
-        height: 400
+        height: 500
     };
 
     var insights = document.getElementById('insights');
@@ -105,6 +107,7 @@ function readPersonaData() {
 
     mugshots.forEach(function (mug) {
         if (mug.name === persona) {
+            thisPersona = persona;
             var pic = document.createElement('img');
             pic.src = 'images/mug/' + mug.image;
             pic.className = "pic"
@@ -123,31 +126,135 @@ function readPersonaData() {
 
             var description = document.getElementById('description');
             description.innerHTML = mug.description;
+        } else {
 
+            var who = document.getElementById('whotofollow');
+
+            var suggestion = document.createElement('div');
+            suggestion.className = 'suggestion';
+
+            var avatar = document.createElement('div');
+            avatar.className = "followAvatar";
+
+            var avatarImage = document.createElement('img');
+            avatarImage.src = 'images/mug/' + mug.image;
+            avatarImage.className = "avatarImage";
+
+            avatar.appendChild(avatarImage);
+            suggestion.appendChild(avatar);
+
+            var avatarName = document.createElement('div');
+            avatarName.className = "followName";
+
+            avatarName.innerHTML = mug.name;
+
+
+            suggestion.appendChild(avatarName);
+            who.appendChild(suggestion);
+
+            // personality.html?persona=Earthling
         }
     });
 
+    function dateString() {
 
-    function newTweet(chartdata) {
+        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+        var dateObj = new Date();
+        var month = dateObj.getUTCMonth();
+        var day = dateObj.getUTCDate();
+
+        return months[month] + ' ' + day;
+    }
+
+    function fromInfo(id, content) {
+        var from = document.createElement('div');
+        from.className = 'from';
+        content.appendChild(from);
+
+        var fullName = document.createElement('div');
+        fullName.className = 'fullname';
+        from.appendChild(fullName);
+        fullName.innerHTML = id;
+
+        var fromName = document.createElement('div');
+        fromName.className = 'fromName';
+        from.appendChild(fromName);
+        fromName.innerHTML = '@' + id;
+
+        var dot = document.createElement('div');
+        dot.innerHTML = ' - ';
+        dot.className = 'fromName';
+        from.appendChild(dot);
+
+        var date = document.createElement('div');
+        date.innerHTML = dateString();
+        date.className = 'fromName';
+        from.appendChild(date);
+    }
+
+    function compare(a, b) {
+        if (a[2] < b[2])
+            return -1;
+        else if (a[2] > b[2])
+            return 1;
+        else
+            return 0;
+    }
+
+    var images = [];
+
+    images['Openness'] = 'openness.png';
+    images['Conscientiousness'] = 'conscientiousness.png';
+    images['Extraversion'] = 'extraversion.png';
+    images['Agreeableness'] = 'agreeableness.png';
+    images['Neuroticism'] = 'neuroticism.png';
+
+    var bigfive = [];
+
+    bigfive['Openness'] = 'Appreciation for art, emotion, adventure, unusual ideas, curiosity, and variety of experience.';
+
+    bigfive['Conscientiousness'] = 'A tendency to be organized and dependable, show self - discipline, act dutifully, aim for achievement.';
+
+    bigfive['Extraversion'] = 'Energy, positive emotions, surgency, assertiveness, sociability.';
+
+    bigfive['Agreeableness'] = 'A tendency to be compassionate and cooperative rather than suspicious and antagonistic towards others';
+
+    bigfive['Neuroticism'] = 'The tendency to experience unpleasant emotions easily, such as anger, anxiety, depression, and vulnerability.'
+
+    function newTweet(id, chartdata) {
         var tweet = document.createElement('div');
         tweet.className = 'tweet';
 
         var icon = document.createElement('div');
         icon.className = 'icon';
-
         tweet.appendChild(icon);
+
+        var iconimage = document.createElement('img');
+        iconimage.src = 'images/bigfive/' + images[id];
+        iconimage.className = 'iconimage';
+
+        icon.appendChild(iconimage);
 
         var content = document.createElement('div');
         content.className = 'content';
         tweet.appendChild(content);
 
-        var from = document.createElement('div');
-        from.className = 'from';
-        content.appendChild(from);
+        fromInfo(id, content);
 
         var tweetContent = document.createElement('div');
         tweetContent.className = 'tweetContent';
         content.appendChild(tweetContent);
+
+        var topTraits = chartdata.sort(compare)
+
+        var key = id;
+
+        var contentString = bigfive[key]; // + ' ' + thisPersona + ' shows stronger ' + topTraits[0][1] + ' and ' + topTraits[1][1] + ' traits ...'
+
+        tweetContent.innerHTML = contentString;
+
 
         var chart = document.createElement('div');
         chart.className = 'chart';
@@ -198,6 +305,8 @@ function readPersonaData() {
 
                 factor.children.forEach(function (trait) {
 
+                    var percentage = factor.percentage;
+
                     var fromName = document.createElement('div');
                     fromName.className = 'content';
 
@@ -215,7 +324,11 @@ function readPersonaData() {
                     total = total + contribution;
 
 
-                    var traitdata = [factor.id, trait.name, contribution];
+                    var label = trait.name + ' ' + trait.percentage.toFixed(2) + '%';
+
+                    var factorlabel = factor.id + ' ' + percentage.toFixed(2) + '%';
+
+                    var traitdata = [factorlabel, label, contribution];
 
                     if (contribution > 0) {
 
@@ -223,7 +336,7 @@ function readPersonaData() {
                     }
                 })
 
-                newTweet(factordata);
+                newTweet(factor.id, factordata);
 
             })
         }

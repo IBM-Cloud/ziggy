@@ -1,262 +1,375 @@
-    .persona {
-        font-size: 14px;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        background-color: #f5f8fa;
-        /* #fdf9f9; */
-        margin: 0;
-        padding: 0;
-    }
-    
-    .banner {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: white;
-        align-items: center;
-        font-weight: bold;
-        height: 40px;
-        color: #66757f;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-    
-    .home {
-        margin-left: 10px;
-    }
-    
-    .title {}
-    
-    .social {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 120px;
-        margin-right: 10px;
-    }
-    
-    .twitter {}
-    
-    .facebook {}
-    /* --- --- --- --- */
-    
-    .banner-image {
-        background-color: #efefef;
-        height: 320px;
-        box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
-        overflow: hidden;
-    }
-    
-    .avatar-canopy {
-        background: #fff;
-    }
-    
-    .floatingbox {
-        position: absolute;
-        top: 240px;
-    }
-    
-    .avatar-container {
-        display: flex;
-        /*    position: relative;*/
-        /*    position: absolute;*/
-        /*    top: 240px;*/
-        align-content: center;
-        justify-content: center;
-    }
-    
-    .avatar-left {
-        width: 290px;
-    }
-    
-    .avatar-mid {
-        width: 587px;
-    }
-    
-    .avatar-right {
-        width: 290px;
-    }
-    
-    .pic {
-        border-radius: 8px;
-        width: 200px;
-        height: 200px;
-        background-repeat: no-repeat;
-    }
-    
-    .avatar {
-        background: white;
-        display: flex;
-        flex-direction: row;
-        align-content: center;
-        justify-content: center;
-        position: absolute;
-        top: 240px;
-        border: 5px solid #fff;
-        border-radius: 12px;
-        box-shadow: 0 1px 1px rgba(136, 153, 166, 0.15);
-    }
-    
-    .meta {
-        background-color: #fff;
-        border-bottom: 1px solid #e1e8ed;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        height: 60px;
-        display: flex;
-        flex-direction: row;
-        align-content: center;
-        justify-content: center;
-    }
-    
-    .meta-bar {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        height: 60px;
-        width: 590px;
-    }
-    
-    .meta-pad {
-        width: 290px;
-    }
-    
-    .words {
-        color: 66757f;
-        font-size: 11px;
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        margin-right: 15px;
-    }
-    
-    .following {
-        color: 66757f;
-        font-size: 11px;
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        margin-right: 15px;
-    }
-    
-    .count {
-        color: #292f33;
-        font-size: 18px;
-        align-self: center;
-    }
-    
-    .followers {
-        color: 66757f;
-        font-size: 11px;
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        margin-right: 15px;
-    }
-    
-    .likes {
-        color: 66757f;
-        font-size: 11px;
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        margin-right: 15px;
-    }
-    
-    .columns {
-        display: flex;
-        flex-direction: row;
-        height: 200px;
-        align-content: center;
-        justify-content: center;
-    }
-    
-    .left {
-        width: 290px;
-        height: 200px;
-        margin-top: 40;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .personaName {
-        font-size: 22px;
-        font-weight: 700;
-        line-height: 1;
-        word-wrap: break-word;
-        margin-left: 5px;
-        line-height: 1;
-        margin-bottom: 5px;
-    }
-    
-    .twitterName {
-        margin-left: 5px;
-        color: #8899a6;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1;
-        margin-bottom: 10px;
-    }
-    
-    .tweetHeading {
-        background-color: #fff;
-        border: 1px solid #e1e8ed;
-        border-radius: 5px 5px 0 0;
-        margin-bottom: -1px;
-        margin-top: 10;
-        height: 46px;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-    }
-    
-    .tweetHeadingLabel {
-        color: #292f33;
-        cursor: default;
-        font-weight: 500;
-        text-decoration: none;
-        margin-left: 10px;
-    }
-    
-    .description {
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 20px;
-        margin-bottom: 10px;
-        word-wrap: break-word;
-        margin-left: 5px;
-        margin-right: 25px;
-    }
-    
-    .middle {
-        width: 587px;
-    }
-    
-    .right {
-        width: 290px;
-        height: 200px;
-        /*    background: orange;*/
-    }
-    
-    .tweet {
-        background: #fff;
-        border-left: 1px solid #e1e8ed;
-        border-right: 1px solid #e1e8ed;
-        border-top: 1px solid #e1e8ed;
-        background-clip: padding-box;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 10px;
-    }
-    
-    .content {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .icon {
-        height: 50px;
-        width: 50px;
-        background-color: #eee;
-    }
+            .persona {
+                font-size: 14px;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                background-color: #f5f8fa;
+                /* #fdf9f9; */
+                margin: 0;
+                padding: 0;
+            }
+            
+            .banner {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                background-color: white;
+                align-items: center;
+                font-weight: bold;
+                height: 40px;
+                color: #66757f;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                align-content: center;
+                justify-content: center;
+            }
+            
+            .blackstar {
+                width: 164px;
+                height: 24px;
+            }
+            
+            .home {
+                margin-left: 10px;
+                width: 290px;
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                align-items: center;
+            }
+            
+            .homeicon {
+                height: 20px;
+                width: 20px;
+                padding-right: 5px;
+            }
+            
+            .title {
+                width: 590px;
+                display: flex;
+                justify-content: center;
+            }
+            
+            .twit {
+                margin-right: 5px;
+            }
+            
+            .social {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                width: 290px;
+                margin-right: 10px;
+            }
+            
+            .twitter {}
+            
+            .facebook {}
+            /* --- --- --- --- */
+            
+            .banner-image {
+                background-color: #efefef;
+                height: 460px;
+                box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+                overflow: hidden;
+            }
+            
+            .avatar-canopy {
+                background: #fff;
+            }
+            
+            .floatingbox {
+                position: absolute;
+                top: 240px;
+            }
+            
+            .avatar-container {
+                display: flex;
+                /*    position: relative;*/
+                /*    position: absolute;*/
+                /*    top: 240px;*/
+                align-content: center;
+                justify-content: center;
+            }
+            
+            .avatar-left {
+                width: 290px;
+            }
+            
+            .avatar-mid {
+                width: 587px;
+            }
+            
+            .avatar-right {
+                width: 290px;
+            }
+            
+            .pic {
+                border-radius: 8px;
+                width: 200px;
+                height: 200px;
+                background-repeat: no-repeat;
+            }
+            
+            .iconimage {
+                height: 30px;
+                width: 30px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-content: center;
+            }
+            
+            .avatar {
+                background: white;
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                justify-content: center;
+                position: absolute;
+                top: 380px;
+                border: 5px solid #fff;
+                border-radius: 12px;
+                box-shadow: 0 1px 1px rgba(136, 153, 166, 0.15);
+            }
+            
+            .meta {
+                background-color: #fff;
+                border-bottom: 1px solid #e1e8ed;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                height: 60px;
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                justify-content: center;
+            }
+            
+            .meta-bar {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                height: 60px;
+                width: 590px;
+            }
+            
+            .meta-pad {
+                width: 290px;
+            }
+            
+            .words {
+                color: 66757f;
+                font-size: 11px;
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                margin-right: 15px;
+            }
+            
+            .following {
+                color: 66757f;
+                font-size: 11px;
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                margin-right: 15px;
+            }
+            
+            .count {
+                color: #292f33;
+                font-size: 18px;
+                align-self: center;
+            }
+            
+            .followers {
+                color: 66757f;
+                font-size: 11px;
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                margin-right: 15px;
+            }
+            
+            .likes {
+                color: 66757f;
+                font-size: 11px;
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                margin-right: 15px;
+            }
+            
+            .columns {
+                display: flex;
+                flex-direction: row;
+                height: 200px;
+                align-content: center;
+                justify-content: center;
+            }
+            
+            .left {
+                width: 290px;
+                height: 200px;
+                margin-top: 40;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .personaName {
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 1;
+                word-wrap: break-word;
+                margin-left: 5px;
+                line-height: 1;
+                margin-bottom: 5px;
+            }
+            
+            .twitterName {
+                margin-left: 5px;
+                color: #8899a6;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1;
+                margin-bottom: 10px;
+            }
+            
+            .tweetHeading {
+                background-color: #fff;
+                border: 1px solid #e1e8ed;
+                border-radius: 5px 5px 0 0;
+                margin-bottom: -1px;
+                margin-top: 10;
+                height: 46px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            
+            .tweetHeadingLabel {
+                color: #292f33;
+                cursor: default;
+                font-weight: 500;
+                text-decoration: none;
+                margin-left: 10px;
+            }
+            
+            .description {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 20px;
+                margin-bottom: 10px;
+                word-wrap: break-word;
+                margin-left: 5px;
+                margin-right: 25px;
+            }
+            
+            .middle {
+                width: 587px;
+            }
+            
+            .right {
+                width: 290px;
+                height: 200px;
+                margin-left: 10px;
+                /*    background: orange;*/
+            }
+            
+            .sidebar {
+                background-color: #fff;
+                border: 1px solid #e1e8ed;
+                border-radius: 5px;
+                margin-top: 10px;
+                /*                height: 300px;*/
+            }
+            
+            .tweet {
+                background: #fff;
+                border-left: 1px solid #e1e8ed;
+                border-right: 1px solid #e1e8ed;
+                border-top: 1px solid #e1e8ed;
+                background-clip: padding-box;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 10px;
+            }
+            
+            .tweetContent {
+                margin-top: 5px;
+                margin-bottom: 5px;
+                font-size: 14px;
+                line-height: 18px;
+            }
+            
+            .from {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .fromName {
+                font-size: 13px;
+                color: #8899a6;
+                padding: 2px;
+            }
+            
+            .content {
+                display: flex;
+                flex-direction: column;
+                width: 500px;
+            }
+            
+            .icon {
+                height: 48px;
+                width: 48px;
+                /*        background-color: #eee;*/
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+                border: 1px solid #eee;
+            }
+            
+            .chart {
+                align-self: center;
+                padding: 20px;
+            }
+            
+            .fullname {
+                font-weight: bold;
+                color: #292f33;
+                padding-right: 2px;
+            }
+            
+            .follow {
+                margin-top: 10px;
+                margin-left: 10px;
+                color: #66757f;
+                display: inline-block;
+                font-size: 18px;
+                font-weight: 300;
+                line-height: 1;
+            }
+            
+            .followAvatar {
+                border: 2px solid white;
+            }
+            
+            .followName {
+                margin-left: 10px;
+            }
+            
+            .avatarImage {
+                height: 48px;
+                width: 48px;
+                border-radius: 5px;
+            }
+            
+            .suggestion {
+                display: flex;
+                flex-direction: row;
+                margin: 10px;
+                height: 50px;
+                align-items: center;
+            }
