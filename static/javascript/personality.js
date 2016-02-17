@@ -96,7 +96,7 @@ function drawBigFive(dataArray) {
     var data = google.visualization.arrayToDataTable(dataArray);
 
     var options = {
-        height: 240,
+        height: 250,
         legend: {
             position: 'none'
         },
@@ -330,7 +330,8 @@ function readPersonaData() {
 
         // Sets chart options.
         var options = {
-            width: 400
+            width: 300,
+            height: 260
         };
 
         var chart = new google.visualization.Sankey(chart);

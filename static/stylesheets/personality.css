@@ -270,7 +270,7 @@
             
             .right {
                 width: 290px;
-                height: 200px;
+                /*                height: 220px;*/
                 margin-left: 10px;
                 /*    background: orange;*/
             }
@@ -391,4 +391,9 @@
             
             .place {
                 padding-left: 5px;
+            }
+            
+            .personaChart {
+                margin-top: 5px;
+                margin-bottom: 15px;
             }
