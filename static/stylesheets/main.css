@@ -93,8 +93,10 @@ a {
 }
 
 .imageBowie {
-    width: 214px; // 257px; 
-    height: 500px; // 600px;
+    width: 257px;
+    /*214px;*/
+    height: 600px;
+    /* 500px; */
     display: flex;
     align-self: center;
     cursor: pointer;
