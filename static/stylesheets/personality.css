@@ -33,6 +33,7 @@
                 flex-direction: row;
                 align-content: center;
                 align-items: center;
+                cursor: pointer;
             }
             
             .homeicon {
@@ -372,4 +373,5 @@
                 margin: 10px;
                 height: 50px;
                 align-items: center;
+                cursor: pointer;
             }

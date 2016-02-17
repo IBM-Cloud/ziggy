@@ -97,6 +97,7 @@ a {
     height: 500px; // 600px;
     display: flex;
     align-self: center;
+    cursor: pointer;
 }
 
 .styleBowie {

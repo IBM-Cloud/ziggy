@@ -70,9 +70,31 @@ var thisPersona;
 
 function drawChart() {
     google.charts.load('current', {
-        'packages': ['sankey']
+        'packages': ['sankey', 'corechart', 'bar']
     });
     google.charts.setOnLoadCallback(readPersonaData);
+}
+
+function drawBigFive(dataArray) {
+
+
+    var data = google.visualization.arrayToDataTable(dataArray);
+
+
+    var options = {
+        height: 240,
+        legend: {
+            position: 'none'
+        },
+        vAxis: {
+            title: 'Percentage'
+        }
+    };
+
+    var chart = new google.visualization.ColumnChart(
+        document.getElementById('personaChart'));
+
+    chart.draw(data, options);
 }
 
 
@@ -98,6 +120,11 @@ function draw(chartdata) {
     chart.draw(data, options);
 }
 
+
+function navigate(e) {
+    var path = './personality.html?persona=' + e.currentTarget.id;
+    window.open(path, '_self', false);
+}
 
 function readPersonaData() {
 
@@ -150,10 +177,14 @@ function readPersonaData() {
 
 
             suggestion.appendChild(avatarName);
+            suggestion.id = mug.name;
+            suggestion.onclick = navigate;
+
             who.appendChild(suggestion);
 
             // personality.html?persona=Earthling
         }
+
     });
 
     function dateString() {
@@ -291,8 +322,22 @@ function readPersonaData() {
 
             var bigfive = data.results.tree.children[0].children[0].children;
 
+            var wordCount = data.results.word_count;
+
+            var wc = document.getElementById('word-count');
+            wc.innerHTML = wordCount;
+
+
             var factordata = [];
             /* Openness */
+
+            var dataArray = [];
+
+            var setup = ['Trait', 'Score', {
+                role: 'style'
+            }];
+
+            dataArray.push(setup);
 
             /* Adventurousness, Artistic interests, Emotionality, Imagination, Intellect, Liberalism */
 
@@ -302,16 +347,18 @@ function readPersonaData() {
 
                 factordata = [];
 
+                var percentage = factor.percentage;
+
+                var bar = [factor.id, factor.percentage.toFixed(2) * 100, '#1da1f2'];
+
+                dataArray.push(bar);
 
                 factor.children.forEach(function (trait) {
-
-                    var percentage = factor.percentage;
 
                     var fromName = document.createElement('div');
                     fromName.className = 'content';
 
                     fromName.innerHTML = trait.name;
-
 
                     var factors = factor.children.length;
 
@@ -324,9 +371,9 @@ function readPersonaData() {
                     total = total + contribution;
 
 
-                    var label = trait.name + ' ' + trait.percentage.toFixed(2) + '%';
+                    var label = trait.name + ' ' + trait.percentage.toFixed(2) * 100 + '%';
 
-                    var factorlabel = factor.id + ' ' + percentage.toFixed(2) + '%';
+                    var factorlabel = factor.id + ' ' + percentage.toFixed(2) * 100 + '%';
 
                     var traitdata = [factorlabel, label, contribution];
 
@@ -337,8 +384,9 @@ function readPersonaData() {
                 })
 
                 newTweet(factor.id, factordata);
-
             })
+
+            drawBigFive(dataArray)
         }
     };
 
