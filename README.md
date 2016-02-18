@@ -26,6 +26,8 @@ http://blog.danwin.com/examples-of-web-scraping-in-python-3-x-for-data-journalis
         1.  `go get github.com/jthomas/copyenv `
         1.  ` cf install-plugin $GOPATH/bin/copyenv`
     1.  Now run ```eval `$(cf copyenv <app name>)` ```
+1. Lastly, the app features a Twitter integration, so Twitter OAuth credentials are needed as well.  If you don't have them, [start here](https://dev.twitter.com/oauth/overview/application-owner-access-tokens).
+    1.  Run the following  `export TWITTER_CREDS='{"access_key": "<ACCESS KEY>", "access_secret": "<ACCESS SECRET>", "consumer_key": "<CONSUMER KEY>", "consumer_secret": "<CONSUMER SECRET>"}'`
 1. Run `python ./server.py` to start your server.
 1. Open a browser to [http://127.0.0.1:5000/setup](http://127.0.0.1:5000/setup)
 
