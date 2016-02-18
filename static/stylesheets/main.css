@@ -1,8 +1,9 @@
 .ziggy {
     padding: 0;
     margin: 0;
-    background-color: #33729b; //#9f805e;
-    font-family: 'Averia Sans Libre', cursive;
+    background-color: #F5F8FA;
+    /* #33729b; #9f805e; */
+    font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -24,9 +25,9 @@ a {
 .top {
     margin: 0;
     padding: 0;
-    background: #1a608f;
+    background: #f3776b;
     height: 140px;
-    border-bottom: 1px solid #33729b;
+    border-bottom: 1px solid #ddd;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,14 +44,16 @@ a {
 }
 
 .name {
-    color: #ccdbe6;
-    font-size: 32px;
+    color: #fff;
+    font-size: 24px;
     margin-bottom: 2px;
+    font-weight: bold;
 }
 
 .description {
-    font-size: 16px;
-    color: #ccdbe6;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
     display: flex;
     align-self: center;
 }
@@ -68,17 +71,17 @@ a {
 }
 
 .aboutBowie {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     padding-bottom: 10px;
-    color: #ccdbe6;
+    color: #dd4131;
 }
 
 .indexBowie {
     font-size: 16px;
     /* padding-top: 40px; */
-    color: #1a608f;
-    background: #ccdbe6;
+    color: #F5F8FA;
+    background: #dd4131;
     width: 22px;
     opacity: 0.75;
     font-weight: bold;
@@ -93,22 +96,25 @@ a {
 }
 
 .imageBowie {
-    width: 214px; // 257px; 
-    height: 500px; // 600px;
+    width: 257px;
+    /*214px;*/
+    height: 600px;
+    /* 500px; */
     display: flex;
     align-self: center;
+    cursor: pointer;
 }
 
 .styleBowie {
-    font-size: 18px;
-    color: #ccdbe6;
+    font-size: 14px;
+    color: #dd4131;
     opacity: .75;
     padding-bottom: 10px;
 }
 
 .timeBowie {
-    font-size: 18px;
-    color: #ccdbe6;
+    font-size: 14px;
+    color: #dd4131;
     opacity: .75;
     padding-bottom: 10px;
 }
@@ -262,14 +268,14 @@ div#carousel {
     font-size: 20px;
     line-height: 1;
     opacity: .75;
-    color: #ccdbe6;
+    color: #dd4131;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 .slick-dots li.slick-active button:before {
     /*    opacity: .75;*/
-    color: white;
+    color: #dd4131;
 }
 
 .slick-dots li button:before {
@@ -284,7 +290,7 @@ div#carousel {
     content: '•';
     text-align: center;
     opacity: .3;
-    color: white;
+    color: #dd4131;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

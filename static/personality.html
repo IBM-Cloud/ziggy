@@ -2,38 +2,12 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="./stylesheets/personality.css" />
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="./javascript/personality.js"></script>
-    <script>
-        ! function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0],
-                p = /^http:/.test(d.location) ? 'http' : 'https';
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = p + '://platform.twitter.com/widgets.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, 'script', 'twitter-wjs');
-    </script>
-    <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=649194155220548";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
 </head>
 
 <body class="persona" onload="drawChart()">
     <div id="fb-root"></div>
-
     <div class="banner">
-        <div class="home"><img class="homeicon" src="images/home.png">Home</div>
+        <div class="home" onClick="window.open('../../');"><img class="homeicon" src="images/home.png">Home</div>
         <div class="title"><img class="blackstar" src="images/bs.png"> </div>
         <div class="social">
             <div class="twit">
@@ -42,7 +16,7 @@
         </div>
     </div>
 
-    <div id="banner" class="banner-image" style="background-image: url(&quot;images/header/earthling.png&quot;); background-size: cover;"></div>
+    <div id="banner" class="banner-image"></div>
 
     <div class="floatingbox">
         <div class="avatar-container">
@@ -62,7 +36,7 @@
         </div>
         <div class="meta-bar">
             <div class="words">
-                <div class="label">WORDS</div>
+                <div class="label">WORD COUNT</div>
                 <div id="word-count" class="count" style="color: rgb(123, 194, 83);">6000</div>
             </div>
             <div class="following">
@@ -83,56 +57,55 @@
     <div class="columns">
         <div class="left">
             <div id="personaName" class="personaName"></div>
-            <div id="twitterName" class="twitterName">@DavidBowieReal</div>
+            <div id="twitterName" class="twitterName">by @antonmc</div>
             <div id="description" class="description"></div>
+            <div class="location"><img class="map" src="images/location.png">
+                <div class="place" id="location"></div>
+            </div>
+            <div class="location"><img class="map" src="images/calendar.png">
+                <div class="place" id="date"></div>
+            </div>
         </div>
         <div class="middle" id="tweets">
             <div class="tweetHeading">
-                <div class="tweetHeadinglabel">Tweets</div>
-
+                <div class="tweetHeadinglabel">Personality</div>
             </div>
-
-            <!-- div class="tweet">
-
-                <div class="icon"></div>
-                <div class="content">
-                    <div class="from">
-                        <div class="fullname"></div>
-                        <div id="fromName" class="fromName"></div>
-                        
-                        <div class="date"></div>
-                    </div>
-                    <div class="tweetContent"></div>
-                    <div class="chart"></div>
-                </div>
-
-            </div -->
-
-
         </div>
         <div class="right">
-            <div class="sidebar"></div>
+            <div class="sidebar">
+                <div class="follow">Big five traits</div>
+                <div id="personaChart"></div>
+            </div>
             <div id="whotofollow" class="sidebar">
                 <div class="follow">Who to follow</div>
-<!--
-                <div<div class="followAvatar">
-</div>
-<div class="followName"></div>
-</div>
--->
-
             </div>
         </div>
     </div>
 
 </body>
-
-<div id="insights"></div>
-<script type="text/javascript" src="https://www.gstatic.com/charts/current/third_party/d3/d3.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/current/third_party/d3/d3.sankey.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/current/js/jsapi_compiled_format_module.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/current/js/jsapi_compiled_default_module.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/current/js/jsapi_compiled_ui_module.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/current/js/jsapi_compiled_sankey_module.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="./javascript/personality.js"></script>
+<script>
+    ! function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=649194155220548 ";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 
 </html>

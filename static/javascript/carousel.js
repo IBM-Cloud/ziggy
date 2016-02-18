@@ -130,6 +130,9 @@
           index.innerHTML = count + 1;
           index.className = "indexBowie";
 
+          var h = document.documentElement.clientHeight;
+
+          var personaHeight = h - 380;
 
           holder.className = "holder";
           var image = document.createElement('img');
@@ -155,7 +158,7 @@
           holder.appendChild(description);
           holder.appendChild(style);
           holder.appendChild(date);
-          holder.appendChild(index);
+          //          holder.appendChild(index);
           holder.id = bowies[count].name;
 
           holder.onclick = shareInsight;

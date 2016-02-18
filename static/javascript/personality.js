@@ -1,14 +1,18 @@
 var mugshots = [
     {
         name: "Man Who Sold The World",
+        location: "London",
+        key: "Early",
         image: "early.png",
         style: "Psychedelic Folk",
         background: "#dd4131",
         date: "1967-72",
-        description: "Electronica-influenced sound partly inspired by the industrial and drum and bass culture of the 1990s"
+        description: "Much of The Man Who Sold the World had a distinct heavy metal edge that distinguishes it from Bowie's other releases, and has been compared to contemporary acts such as Led Zeppelin and Black Sabbath."
     },
     {
         name: "Ziggy Stardust",
+        location: "London, New York",
+        key: "Ziggy Stardust",
         image: "ziggy.png",
         style: "Glam Rock",
         background: "#9694a2",
@@ -17,39 +21,49 @@ var mugshots = [
     },
     {
         name: "Aladdin Sane",
+        location: "London, New York",
+        key: "Ziggy Stardust",
         image: "aladdin.png",
         style: "Glam Rock",
         background: "#f9df3c",
         date: "1972-73",
-        description: "Electronica-influenced sound partly inspired by the industrial and drum and bass culture of the 1990s"
+        description: "The name of the album is a pun on 'A Lad Insane'. Although technically a new Bowie 'character', Aladdin Sane was essentially a development of Ziggy Stardust in his appearance and persona"
     },
 
     {
         name: "Berlin Trilogy",
+        location: "Berlin",
+        key: "Berlin",
         image: "berlin.png",
         style: "Industrial",
         background: "#014f83",
         date: "1976-79",
-        description: "Electronica-influenced sound partly inspired by the industrial and drum and bass culture of the 1990s"
+        description: "Before the end of 1976, Bowie's interest in the burgeoning German music scene, as well as his drug addiction, prompted him to move to West Berlin to clean up and revitalise his career. There he was often seen riding a bicycle between his apartment on Hauptstraße in Schöneberg and Hansa Tonstudi"
     },
     {
         name: "Pierrot",
+        location: "New York",
+        key: "Pierrot",
         image: "pierrot.png",
         style: "New Wave",
         background: "#b18f67",
         date: "1980-83",
-        description: "Electronica-influenced sound partly inspired by the industrial and drum and bass culture of the 1990s"
+        description: "Scary Monsters (And Super Creeps) (1980) produced the number one hit 'Ashes to Ashes', featuring the textural work of guitar-synthesist Chuck Hammer and revisiting the character of Major Tom from 'Space Oddity'."
     },
     {
         name: "Modern Love",
+        location: "New York",
+        key: "Modern",
         image: "modern.png",
         style: "Pop",
         background: "#8fa6ce",
         date: "1984-88",
-        description: "Electronica-influenced sound partly inspired by the industrial and drum and bass culture of the 1990s"
+        description: "Bowie reached a new peak of popularity and commercial success in 1983 with Let's Dance. Co-produced by Chic's Nile Rodgers, the album went platinum in both the UK and the US. Its three singles became top twenty hits in both countries, where its title track reached number one."
     },
     {
         name: "Earthling",
+        location: "Montreux, New York",
+        key: "Earthling",
         image: "earthling.png",
         style: "Electronic, Grunge",
         background: "#7bc253",
@@ -58,11 +72,13 @@ var mugshots = [
     },
     {
         name: "Lazarus",
+        location: "New York",
+        key: "Lazarus",
         image: "lazarus.png",
         style: "Neoclassicist",
         background: "#f3776b",
         date: "2013-16",
-        description: "Electronica-influenced sound partly inspired by the industrial and drum and bass culture of the 1990s"
+        description: "The music on Blackstar has been characterized as incorporating art rock, jazz, and experimental rock. Bowie had been listening to rapper Kendrick Lamar's 2015 album To Pimp a Butterfly during the recording sessions and cited it as an influence."
     }
 ]
 
@@ -70,9 +86,29 @@ var thisPersona;
 
 function drawChart() {
     google.charts.load('current', {
-        'packages': ['sankey']
+        'packages': ['sankey', 'corechart', 'bar']
     });
     google.charts.setOnLoadCallback(readPersonaData);
+}
+
+function drawBigFive(dataArray) {
+
+    var data = google.visualization.arrayToDataTable(dataArray);
+
+    var options = {
+        height: 250,
+        legend: {
+            position: 'none'
+        },
+        vAxis: {
+            title: 'Percentage'
+        }
+    };
+
+    var chart = new google.visualization.ColumnChart(
+        document.getElementById('personaChart'));
+
+    chart.draw(data, options);
 }
 
 
@@ -83,10 +119,21 @@ function draw(chartdata) {
     data.addColumn('number', 'Weight');
     data.addRows(chartdata);
 
-    // Sets chart options.
+
+    var colors = ['#a6cee3', '#b2df8a', '#fb9a99', '#fdbf6f', '#cab2d6', '#ffff99', '#1f78b4', '#33a02c'];
+
     var options = {
         width: 500,
-        height: 500
+        height: 500,
+        sankey: {
+            node: {
+                colors: colors
+            },
+            link: {
+                colorMode: 'gradient',
+                colors: colors
+            }
+        }
     };
 
     var insights = document.getElementById('insights');
@@ -99,6 +146,11 @@ function draw(chartdata) {
 }
 
 
+function navigate(e) {
+    var path = './personality.html?persona=' + e.currentTarget.id;
+    window.open(path, '_self', false);
+}
+
 function readPersonaData() {
 
     var persona = getParameterByName('persona');
@@ -106,8 +158,9 @@ function readPersonaData() {
     console.log('readPersonaData');
 
     mugshots.forEach(function (mug) {
+
         if (mug.name === persona) {
-            thisPersona = persona;
+            thisPersona = mug;
             var pic = document.createElement('img');
             pic.src = 'images/mug/' + mug.image;
             pic.className = "pic"
@@ -126,6 +179,12 @@ function readPersonaData() {
 
             var description = document.getElementById('description');
             description.innerHTML = mug.description;
+
+            var location = document.getElementById('location');
+            location.innerHTML = mug.location;
+            var date = document.getElementById('date');
+            date.innerHTML = mug.date;
+
         } else {
 
             var who = document.getElementById('whotofollow');
@@ -150,6 +209,9 @@ function readPersonaData() {
 
 
             suggestion.appendChild(avatarName);
+            suggestion.id = mug.name;
+            suggestion.onclick = navigate;
+
             who.appendChild(suggestion);
 
             // personality.html?persona=Earthling
@@ -268,7 +330,8 @@ function readPersonaData() {
 
         // Sets chart options.
         var options = {
-            width: 400
+            width: 300,
+            height: 260
         };
 
         var chart = new google.visualization.Sankey(chart);
@@ -280,7 +343,16 @@ function readPersonaData() {
 
 
     var xmlhttp = new XMLHttpRequest();
-    var url = '../api/persona/' + persona;
+
+    var key;
+
+    mugshots.forEach(function (m) {
+        if (m.name === persona) {
+            key = m.key;
+        }
+    });
+
+    var url = '../api/persona/' + key;
 
     var openness = [];
 
@@ -291,8 +363,22 @@ function readPersonaData() {
 
             var bigfive = data.results.tree.children[0].children[0].children;
 
+            var wordCount = data.results.word_count;
+
+            var wc = document.getElementById('word-count');
+            wc.innerHTML = wordCount;
+
+
             var factordata = [];
             /* Openness */
+
+            var dataArray = [];
+
+            var setup = ['Trait', 'Score', {
+                role: 'style'
+            }];
+
+            dataArray.push(setup);
 
             /* Adventurousness, Artistic interests, Emotionality, Imagination, Intellect, Liberalism */
 
@@ -302,16 +388,20 @@ function readPersonaData() {
 
                 factordata = [];
 
+                var percentage = factor.percentage;
+
+                //'#1da1f2'
+
+                var bar = [factor.id, factor.percentage.toFixed(2) * 100, thisPersona.background];
+
+                dataArray.push(bar);
 
                 factor.children.forEach(function (trait) {
-
-                    var percentage = factor.percentage;
 
                     var fromName = document.createElement('div');
                     fromName.className = 'content';
 
                     fromName.innerHTML = trait.name;
-
 
                     var factors = factor.children.length;
 
@@ -324,9 +414,9 @@ function readPersonaData() {
                     total = total + contribution;
 
 
-                    var label = trait.name + ' ' + trait.percentage.toFixed(2) + '%';
+                    var label = trait.name + ' ' + trait.percentage.toFixed(2) * 100 + '%';
 
-                    var factorlabel = factor.id + ' ' + percentage.toFixed(2) + '%';
+                    var factorlabel = factor.id + ' ' + percentage.toFixed(2) * 100 + '%';
 
                     var traitdata = [factorlabel, label, contribution];
 
@@ -337,8 +427,9 @@ function readPersonaData() {
                 })
 
                 newTweet(factor.id, factordata);
-
             })
+
+            drawBigFive(dataArray)
         }
     };
 

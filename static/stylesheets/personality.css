@@ -33,6 +33,7 @@
                 flex-direction: row;
                 align-content: center;
                 align-items: center;
+                cursor: pointer;
             }
             
             .homeicon {
@@ -207,7 +208,7 @@
             
             .left {
                 width: 290px;
-                height: 200px;
+                height: 300px;
                 margin-top: 40;
                 display: flex;
                 flex-direction: column;
@@ -269,7 +270,7 @@
             
             .right {
                 width: 290px;
-                height: 200px;
+                /*                height: 220px;*/
                 margin-left: 10px;
                 /*    background: orange;*/
             }
@@ -372,4 +373,27 @@
                 margin: 10px;
                 height: 50px;
                 align-items: center;
+                cursor: pointer;
+            }
+            
+            .location {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-left: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .map {
+                height: 20px;
+                width: 20px;
+            }
+            
+            .place {
+                padding-left: 5px;
+            }
+            
+            .personaChart {
+                margin-top: 5px;
+                margin-bottom: 15px;
             }
