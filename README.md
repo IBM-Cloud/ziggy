@@ -19,10 +19,13 @@ http://blog.danwin.com/examples-of-web-scraping-in-python-3-x-for-data-journalis
 1. Install [application requirements](application-requirements) as needed.
 1. Open application directory in your terminal and run
     `pip install -r ./requirements.txt`
-1. This application cannot run without access to the Watson personality insights service.  At a minimum, environment variables with valid credential for that must be present to run the app locally.  To run this code unmodified also requires a Cloudant database instance as well as Twitter OAuth credentials.
-    * Following the example below create two environment variables, substituting correct values from your Twitter and your Bluemix services :
-    * `export VCAP_SERVICES='{"cloudantNoSQLDB":[{"name" : "someName","label" : "cloudantNoSQLDB","plan" : "Shared","credentials" : {"username" : "usernamegoeshere","password" : "mypassword","host" : "thehost","port" : 443,"url" : "the host"}}],"personality_insights":[{"credentials":{"password":"password","url":"url","username":"someusername"},"label":"personality_insights","name":"some name","plan":"tiered"}]}'`
-    * `export TWITTER_CREDS='{"access_key": "my key", "access_secret": "my secret", "consumer_key": "my consumer key", "consumer_secret": "my consumer secret"}'`
+1. This application cannot run without coupled Bluemix services (Watson personality insights and a Clouding database).  To run a local copy of the application, complete the following steps.
+    1.  Create and bind the required services (personality insights, and Cloudant) to your app. 
+    1.  Install go-lang, if needed.
+    1.  Install [copyenv](https://github.com/jthomas/copyenv), a cf tools plugin by running:
+        1.  `go get github.com/jthomas/copyenv `
+        1.  ` cf install-plugin $GOPATH/bin/copyenv`
+    1.  Now run ```eval `$(cf copyenv <app name>)` ```
 1. Run `python ./server.py` to start your server.
 1. Open a browser to [http://127.0.0.1:5000/setup](http://127.0.0.1:5000/setup)
 
