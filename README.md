@@ -19,7 +19,7 @@ http://blog.danwin.com/examples-of-web-scraping-in-python-3-x-for-data-journalis
 1. Install [application requirements](application-requirements) as needed.
 1. Open application directory in your terminal and run
     `pip install -r ./requirements.txt`
-1. This application cannot run without coupled Bluemix services (Watson personality insights and a Clouding database).  To run a local copy of the application, complete the following steps.
+1. This application cannot run without coupled Bluemix services (Watson personality insights and a Cloudant database).  To run a local copy of the application, complete the following steps.
     1.  Create and bind the required services (personality insights, and Cloudant) to your app. 
     1.  Install go-lang, if needed.
     1.  Install [copyenv](https://github.com/jthomas/copyenv), a cf tools plugin by running:
