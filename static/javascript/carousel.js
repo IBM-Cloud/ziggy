@@ -1,127 +1,87 @@
   var bowies = [
       {
           name: "Man Who Sold The World",
-          image: "bowie-early.png",
+          image: "early.svg",
           style: "Psychedelic Folk",
           background: "#dd4131",
-          date: "1967-72"
+          date: "1967-72",
+          start: "1967",
+          end: "1972"
     },
       {
           name: "Ziggy Stardust",
-          image: "bowie-ziggy.png",
+          image: "ziggy.svg",
           style: "Glam Rock",
           background: "#9694a2",
-          date: "1972-73"
+          date: "1972-73",
+          start: "1972",
+          end: "1973"
     },
       {
           name: "Aladdin Sane",
-          image: "bowie-aladdin.png",
+          image: "aladdin.svg",
           style: "Glam Rock",
           background: "#f9df3c",
-          date: "1972-73"
+          date: "1972-73",
+          start: "1972",
+          end: "1973"
     },
 
       {
           name: "Berlin Trilogy",
-          image: "bowie-berlin.png",
+          image: "berlin.svg",
           style: "Industrial",
           background: "#014f83",
-          date: "1976-79"
+          date: "1976-79",
+          start: "1976",
+          end: "1979"
     },
       {
           name: "Pierrot",
-          image: "bowie-pierrot.png",
+          image: "pierrot.svg",
           style: "New Wave",
           background: "#b18f67",
-          date: "1980-83"
+          date: "1980-83",
+          start: "1980",
+          end: "1983"
     },
       {
           name: "Modern Love",
-          image: "bowie-modern.png",
+          image: "modern.svg",
           style: "Pop",
           background: "#8fa6ce",
-          date: "1984-88"
+          date: "1984-88",
+          start: "1984",
+          end: "1988"
     },
       {
           name: "Earthling",
-          image: "bowie-outside.png",
+          image: "earthling.svg",
           style: "Electronic, Grunge",
           background: "#7bc253",
-          date: "1992-98"
+          date: "1992-98",
+          start: "1992",
+          end: "1998"
     },
       {
           name: "Lazarus",
-          image: "bowie-lazarus.png",
+          image: "lazarus.svg",
           style: "Neoclassicist",
           background: "#f3776b",
-          date: "2013-16"
+          date: "2013-16",
+          start: "2013",
+          end: "2016"
     }
 ]
 
-  var mugshots = [
-      {
-          name: "Man Who Sold The World",
-          image: "early.png",
-          style: "Psychedelic Folk",
-          background: "#dd4131",
-          date: "1967-72"
-    },
-      {
-          name: "Ziggy Stardust",
-          image: "ziggy.png",
-          style: "Glam Rock",
-          background: "#9694a2",
-          date: "1972-73"
-    },
-      {
-          name: "Aladdin Sane",
-          image: "aladdin.png",
-          style: "Glam Rock",
-          background: "#f9df3c",
-          date: "1972-73"
-    },
-
-      {
-          name: "Berlin Trilogy",
-          image: "berlin.png",
-          style: "Industrial",
-          background: "#014f83",
-          date: "1976-79"
-    },
-      {
-          name: "Pierrot",
-          image: "pierrot.png",
-          style: "New Wave",
-          background: "#b18f67",
-          date: "1980-83"
-    },
-      {
-          name: "Modern Love",
-          image: "modern.png",
-          style: "Pop",
-          background: "#8fa6ce",
-          date: "1984-88"
-    },
-      {
-          name: "Earthling",
-          image: "earthling.png",
-          style: "Electronic, Grunge",
-          background: "#7bc253",
-          date: "1992-98"
-    },
-      {
-          name: "Lazarus",
-          image: "lazarus.png",
-          style: "Neoclassicist",
-          background: "#f3776b",
-          date: "2013-16"
-    }
-]
+  var currentBowie = 0;
 
   function fullBowies() {
       carousel = document.getElementById('carousel');
       for (var count = 0; count < bowies.length; count++) {
           var item = document.createElement('div');
+          item.dataset.bowie = bowies[count].name;
+          item.className = 'bowieItem';
           //        item.className = "carousel-seat";
           var holder = document.createElement('div');
           //        h.innerHTML = count;
@@ -130,19 +90,25 @@
           index.innerHTML = count + 1;
           index.className = "indexBowie";
 
-          var h = document.documentElement.clientHeight;
+          var h = carousel.parentElement.parentElement.clientHeight;
 
-          var personaHeight = h - 380;
+          var personaHeight = h - 280;
+
+          //          console.log(personaHeight);
 
           holder.className = "holder";
           var image = document.createElement('img');
-          image.src = 'static/images/' + bowies[count].image;
-          image.className = "imageBowie";
+          image.src = 'static/images/svg/' + bowies[count].image;
+          //          image.className = "imageBowie";
+
+          image.style.height = personaHeight + "px";
           holder.backgroundColor = bowies[count].background;
 
           var description = document.createElement('div');
           description.innerHTML = bowies[count].name;
           description.className = "aboutBowie";
+
+
 
           var style = document.createElement('div');
           style.innerHTML = bowies[count].style;
@@ -163,9 +129,68 @@
 
           holder.onclick = shareInsight;
 
+
+          if (count === 0) {
+              item.style.display = 'block';
+          }
+
+          bowies[count].element = item;
+
           item.appendChild(holder);
           carousel.appendChild(item);
       }
+
+      currentBowie = 0;
+  }
+
+  function chooseBowie(index) {
+
+      bowies[currentBowie].element.style.display = 'none';
+      bowies[currentBowie].node.className = 'nodeDimmed';
+      bowies[currentBowie].nodeLabel.className = 'startDimmed';
+
+      bowies[index].element.style.display = 'block';
+      bowies[index].node.className = 'nodeLit';
+      bowies[index].nodeLabel.className = 'startLit';
+
+      currentBowie = index;
+  }
+
+  function addTimeLine() {
+
+      var timeline = document.getElementById('timeline');
+      var count = 0;
+
+      bowies.forEach(function (bowie) {
+          var entry = document.createElement('div');
+          entry.className = 'entry';
+          entry.dataset.index = count;
+          entry.dataset.bowie = bowie.name;
+
+          entry.onclick = function (e) {
+              var index = e.target.dataset.index;
+              chooseBowie(index);
+          }
+
+          bowie.node = document.createElement('div');
+          bowie.node.className = 'nodeDimmed';
+          bowie.node.dataset.index = count;
+          entry.appendChild(bowie.node);
+
+          bowie.nodeLabel = document.createElement('div');
+          bowie.nodeLabel.innerHTML = bowie.start;
+          bowie.nodeLabel.className = 'startDimmed';
+          entry.appendChild(bowie.nodeLabel);
+
+          if (count === 0) {
+              bowie.node.className = 'nodeLit';
+              bowie.nodeLabel.className = 'startLit';
+          }
+
+          timeline.appendChild(entry);
+          count++;
+
+      })
   }
 
   function shareInsight(e) {
@@ -173,87 +198,34 @@
       window.open(path, '_self', false);
   }
 
-  function circleBowies() {
+  window.onresize = function () {
       carousel = document.getElementById('carousel');
-      for (var count = 0; count < mugshots.length; count++) {
-          var item = document.createElement('div');
-          //        item.className = "carousel-seat";
-          var holder = document.createElement('div');
-          //        h.innerHTML = count;
-
-          //          holder.className = "holder";
-          var image = document.createElement('img');
-          image.src = 'static/images/mug/' + mugshots[count].image;
-          image.className = "bowieCircle";
-
-          //          var description = document.createElement('div');
-          //          description.innerHTML = mugs[count].name;
-          //          description.className = "aboutBowie";
-          //
-          //          var style = document.createElement('div');
-          //          style.innerHTML = bowies[count].style;
-          //          style.className = "styleBowie";
-          //
-          //          var date = document.createElement('div');
-          //          date.innerHTML = bowies[count].date;
-          //          date.className = "timeBowie";
-
-          holder.appendChild(image);
-          //          holder.appendChild(description);
-          //          holder.appendChild(style);
-          //          holder.appendChild(date);
-
-          item.appendChild(holder);
-          carousel.appendChild(item);
-      }
+      carousel.innerHTML = null;
+      fullBowies();
   }
 
-  //    < div class = "flip-container"
-  //    ontouchstart = "this.classList.toggle('hover');" >
-  //        < div class = "flipper" >
-  //        < div class = "front" >
-  //        <!-- front content -->
-  //        < /div> < div class = "back" >
-  //        <!-- back content -->
-  //        < /div> < /div> < /div>
 
 
   window.onload = function () {
-
-      var carousel, next, prev, seats;
-
       fullBowies();
+      addTimeLine();
 
-      $('.carousel').slick({
-          //          centerMode: true,
-          //        centerPadding: '60px',
-          slidesToShow: 1,
-          autoplay: true,
-          autoplaySpeed: 5000,
-          dots: true,
-          arrows: true,
-          responsive: [
-              {
-                  breakpoint: 768,
-                  settings: {
-                      arrows: false,
-                      centerMode: true,
-                      centerPadding: '40px',
-                      slidesToShow: 3,
-                      dots: true
-                  }
-    },
-              {
-                  breakpoint: 480,
-                  settings: {
-                      arrows: false,
-                      centerMode: true,
-                      centerPadding: '40px',
-                      slidesToShow: 1,
-                      dots: true
-                  }
-    }
-  ]
-      });
+      var nextBowie;
+      var cap = bowies.length - 1
+
+      setInterval(function () {
+
+
+
+          if (currentBowie < cap) {
+              nextBowie = currentBowie + 1;
+          } else {
+              nextBowie = 0;
+          }
+          chooseBowie(nextBowie);
+      }, 3000);
+
+
+
 
   }

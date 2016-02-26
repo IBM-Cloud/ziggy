@@ -1,8 +1,8 @@
 .ziggy {
     padding: 0;
     margin: 0;
-    background-color: #F5F8FA;
-    /* #33729b; #9f805e; */
+    background-color: #F3F1EB;
+    /* #F5F8FA; #33729b; #9f805e; */
     font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
@@ -25,9 +25,9 @@ a {
 .top {
     margin: 0;
     padding: 0;
-    background: #f3776b;
-    height: 140px;
-    border-bottom: 1px solid #ddd;
+    background: #7bc253;
+    height: 80px;
+    /*    border-bottom: 1px solid #ddd;*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,13 +45,13 @@ a {
 
 .name {
     color: #fff;
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 2px;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .description {
-    font-size: 14px;
+    font-size: 10px;
     font-weight: bold;
     color: #fff;
     display: flex;
@@ -60,7 +60,6 @@ a {
 
 .holder {
     text-align: center;
-    margin: 50px;
     /*    border: 1px solid #8d7254;*/
     /*    background: #9f805e;*/
     border-radius: 4px;
@@ -73,7 +72,7 @@ a {
 .aboutBowie {
     font-size: 16px;
     font-weight: bold;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     color: #dd4131;
 }
 
@@ -96,40 +95,42 @@ a {
 }
 
 .imageBowie {
-    width: 257px;
+    /*    width: 257px;*/
     /*214px;*/
-    height: 600px;
+    /*    height: 600px;*/
     /* 500px; */
     display: flex;
     align-self: center;
     cursor: pointer;
+    transition: opacity 1s ease-in-out;
 }
 
 .styleBowie {
     font-size: 14px;
     color: #dd4131;
     opacity: .75;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
 }
 
 .timeBowie {
     font-size: 14px;
     color: #dd4131;
     opacity: .75;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
 }
 
 .footer {
     position: fixed;
     display: flex;
+    flex-direction: row;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 60px;
+    height: 80px;
     margin: 0;
-    background: #f6cac9;
+    background: #ffffff;
     align-content: center;
-    /* border-top: 3px solid #fdf9f9;*/
+    justify-content: center;
 }
 
 .footer-container {
@@ -297,4 +298,68 @@ div#carousel {
 
 .slick-slide {
     outline: none
+}
+
+.bowieItem {
+    display: none;
+    -webkit-transition: display 1s ease-in-out;
+    -moz-transition: display 1s ease-in-out;
+    -o-transition: display 1s ease-in-out;
+    transition: display 1s ease-in-out;
+}
+
+
+/* - - - - - - - - - */
+
+.timeline {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: center;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.node {
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.nodeDimmed {
+    width: 11px;
+    height: 11px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    opacity: 0.4;
+    background: #9694a2;
+    cursor: pointer;
+}
+
+.nodeLit {
+    width: 11px;
+    height: 11px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background: #dd4131;
+    opacity: .8;
+    cursor: pointer;
+}
+
+.startDimmed {
+    color: #9694a2;
+    opacity: 0.4;
+    font-size: 11px;
+}
+
+.startLit {
+    color: #dd4131;
+    font-size: 11px;
 }
