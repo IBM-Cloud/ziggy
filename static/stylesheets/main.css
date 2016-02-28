@@ -3,7 +3,8 @@
     margin: 0;
     background-color: #F3F1EB;
     /* #F5F8FA; #33729b; #9f805e; */
-    font-family: 'Open Sans', sans-serif;
+    /*    font-family: 'Open Sans', sans-serif;*/
+    font-family: 'Karla', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -45,7 +46,7 @@ a {
 
 .name {
     color: #fff;
-    font-size: 26px;
+    font-size: 24px;
     margin-bottom: 2px;
     font-weight: bolder;
 }
@@ -243,6 +244,8 @@ a {
 div#carousel {
     /*    margin: 50px;*/
     margin-top: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .slick-dots {
@@ -301,11 +304,17 @@ div#carousel {
 }
 
 .bowieItem {
-    display: none;
-    -webkit-transition: display 1s ease-in-out;
-    -moz-transition: display 1s ease-in-out;
-    -o-transition: display 1s ease-in-out;
-    transition: display 1s ease-in-out;
+    /*    display: none;*/
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 2;
+    /* NEW */
+    -webkit-transition: opacity 4s ease-in-out;
+    -moz-transition: opacity 4s ease-in-out;
+    -o-transition: opacity 4s ease-in-out;
+    transition: opacity 4s ease-in-out;
 }
 
 

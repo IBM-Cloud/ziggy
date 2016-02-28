@@ -77,7 +77,13 @@
   var currentBowie = 0;
 
   function fullBowies() {
+
       carousel = document.getElementById('carousel');
+      var h = carousel.parentElement.parentElement.clientHeight;
+
+      var personaHeight = h - 280;
+
+
       for (var count = 0; count < bowies.length; count++) {
           var item = document.createElement('div');
           item.dataset.bowie = bowies[count].name;
@@ -90,16 +96,14 @@
           index.innerHTML = count + 1;
           index.className = "indexBowie";
 
-          var h = carousel.parentElement.parentElement.clientHeight;
 
-          var personaHeight = h - 280;
 
           //          console.log(personaHeight);
 
           holder.className = "holder";
           var image = document.createElement('img');
           image.src = 'static/images/svg/' + bowies[count].image;
-          //          image.className = "imageBowie";
+          image.className = "imageBowie";
 
           image.style.height = personaHeight + "px";
           holder.backgroundColor = bowies[count].background;
@@ -130,26 +134,51 @@
           holder.onclick = shareInsight;
 
 
-          if (count === 0) {
-              item.style.display = 'block';
+
+          if (count != 0) {
+              //              item.style.display = 'block';
+              //              item.style.marginTop = '-' + 780 + 'px';
+
+              var gap = bowies[0].element.clientHeight;
+              item.style.marginTop = '-' + gap + 'px';
+              item.style.margin
+              item.style.top = bowies[0].element.style.top;
+              item.style.opacity = 0;
+
+              carousel.style.marginTop = gap + 'px';
+
+          } else {
+              //              item.style.marginTop = '-' + gap + 'px';
+
           }
 
           bowies[count].element = item;
 
+          item.style.zIndex = count + 1;
+          item.style.order = bowies.length - count;
+
+          var c = personaHeight * count;
+
+          console.log(personaHeight * count);
+
           item.appendChild(holder);
+          //          item.style.marginTop = '-' + c + 'px';
+          //          item.style.top = 0;
           carousel.appendChild(item);
       }
 
       currentBowie = 0;
+      var gap = bowies[0].element.clientHeight;
+      bowies[0].element.style.marginTop = '-' + gap + 'px';
   }
 
   function chooseBowie(index) {
 
-      bowies[currentBowie].element.style.display = 'none';
+      bowies[currentBowie].element.style.opacity = 0;
       bowies[currentBowie].node.className = 'nodeDimmed';
       bowies[currentBowie].nodeLabel.className = 'startDimmed';
 
-      bowies[index].element.style.display = 'block';
+      bowies[index].element.style.opacity = 1;
       bowies[index].node.className = 'nodeLit';
       bowies[index].nodeLabel.className = 'startLit';
 
@@ -223,8 +252,7 @@
               nextBowie = 0;
           }
           chooseBowie(nextBowie);
-      }, 3000);
-
+      }, 10000);
 
 
 
