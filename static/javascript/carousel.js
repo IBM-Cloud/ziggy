@@ -22,9 +22,18 @@
           image: "aladdin.svg",
           style: "Glam Rock",
           background: "#f9df3c",
-          date: "1972-73",
-          start: "1972",
-          end: "1973"
+          date: "1973-74",
+          start: "1973",
+          end: "1974"
+    },
+      {
+          name: "Thin White Duke",
+          image: "duke.svg",
+          style: "Soul, Funk",
+          background: "#f9df3c",
+          date: "1974-76",
+          start: "1975",
+          end: "1976"
     },
 
       {
@@ -81,24 +90,16 @@
       carousel = document.getElementById('carousel');
       var h = carousel.parentElement.parentElement.clientHeight;
 
-      var personaHeight = h - 280;
-
+      var personaHeight = h - 320;
 
       for (var count = 0; count < bowies.length; count++) {
           var item = document.createElement('div');
           item.dataset.bowie = bowies[count].name;
           item.className = 'bowieItem';
-          //        item.className = "carousel-seat";
           var holder = document.createElement('div');
-          //        h.innerHTML = count;
-
           var index = document.createElement('div');
           index.innerHTML = count + 1;
           index.className = "indexBowie";
-
-
-
-          //          console.log(personaHeight);
 
           holder.className = "holder";
           var image = document.createElement('img');
@@ -106,13 +107,16 @@
           image.className = "imageBowie";
 
           image.style.height = personaHeight + "px";
+
+          image.id = item.dataset.bowie;
+
+          image.onclick = shareInsight;
+
           holder.backgroundColor = bowies[count].background;
 
           var description = document.createElement('div');
           description.innerHTML = bowies[count].name;
           description.className = "aboutBowie";
-
-
 
           var style = document.createElement('div');
           style.innerHTML = bowies[count].style;
@@ -122,18 +126,10 @@
           date.innerHTML = bowies[count].date;
           date.className = "timeBowie";
 
-          //          holder.appendChild(index);
-
           holder.appendChild(image);
           holder.appendChild(description);
           holder.appendChild(style);
           holder.appendChild(date);
-          //          holder.appendChild(index);
-          holder.id = bowies[count].name;
-
-          holder.onclick = shareInsight;
-
-
 
           if (count != 0) {
               //              item.style.display = 'block';
@@ -162,8 +158,7 @@
           console.log(personaHeight * count);
 
           item.appendChild(holder);
-          //          item.style.marginTop = '-' + c + 'px';
-          //          item.style.top = 0;
+
           carousel.appendChild(item);
       }
 
@@ -206,6 +201,10 @@
           bowie.node.dataset.index = count;
           entry.appendChild(bowie.node);
 
+          bowie.line = document.createElement('div');
+          bowie.line.className = 'nodeLine';
+          entry.appendChild(bowie.line);
+
           bowie.nodeLabel = document.createElement('div');
           bowie.nodeLabel.innerHTML = bowie.start;
           bowie.nodeLabel.className = 'startDimmed';
@@ -218,12 +217,13 @@
 
           timeline.appendChild(entry);
           count++;
-
       })
   }
 
   function shareInsight(e) {
-      var path = './static/personality.html?persona=' + e.currentTarget.id;
+      //      var path = './static/personality.html?persona=' + e.currentTarget.id;
+      var path = './static/personality.html?persona=' + bowies[currentBowie].name;
+
       window.open(path, '_self', false);
   }
 
@@ -232,8 +232,6 @@
       carousel.innerHTML = null;
       fullBowies();
   }
-
-
 
   window.onload = function () {
       fullBowies();
@@ -244,16 +242,11 @@
 
       setInterval(function () {
 
-
-
           if (currentBowie < cap) {
               nextBowie = currentBowie + 1;
           } else {
               nextBowie = 0;
           }
           chooseBowie(nextBowie);
-      }, 10000);
-
-
-
+      }, 5000);
   }

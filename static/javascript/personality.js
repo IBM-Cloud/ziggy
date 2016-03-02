@@ -85,7 +85,8 @@ var mugshots = [
 var thisPersona;
 
 function drawChart() {
-    google.charts.load('current', {
+
+    google.charts.load('43', {
         'packages': ['sankey', 'corechart', 'bar']
     });
     google.charts.setOnLoadCallback(readPersonaData);

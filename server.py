@@ -118,6 +118,15 @@ if 'FLASK_DEBUG' in os.environ:
 def Welcome():
     return app.send_static_file('index.html')
 
+@app.route('/init')
+def Initialize():
+    print 'this is a test' ;
+    with open('personas.json') as json_file:
+        json_data = json.load(json_file)
+        print json_data 
+        print 'loaded file' ;
+    return
+
 @app.route('/setup')
 def Setup():
     personas = GetPersonas()

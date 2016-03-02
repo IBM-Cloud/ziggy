@@ -27,8 +27,8 @@ a {
     margin: 0;
     padding: 0;
     background: #7bc253;
-    height: 80px;
-    /*    border-bottom: 1px solid #ddd;*/
+    height: 100px;
+    border-bottom: 1px solid #6eae4a;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +46,7 @@ a {
 
 .name {
     color: #fff;
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 2px;
     font-weight: bolder;
 }
@@ -127,11 +127,12 @@ a {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 100px;
     margin: 0;
     background: #ffffff;
     align-content: center;
     justify-content: center;
+    border-top: 1px solid #eee;
 }
 
 .footer-container {
@@ -311,10 +312,10 @@ div#carousel {
     justify-content: center;
     order: 2;
     /* NEW */
-    -webkit-transition: opacity 4s ease-in-out;
-    -moz-transition: opacity 4s ease-in-out;
-    -o-transition: opacity 4s ease-in-out;
-    transition: opacity 4s ease-in-out;
+    -webkit-transition: opacity 2s ease-in-out;
+    -moz-transition: opacity 2s ease-in-out;
+    -o-transition: opacity 2s ease-in-out;
+    transition: opacity 2s ease-in-out;
 }
 
 
@@ -330,7 +331,7 @@ div#carousel {
 .entry {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    width: 50px;
     justify-content: center;
     align-items: center;
 }
@@ -347,7 +348,6 @@ div#carousel {
     height: 11px;
     border-radius: 20px;
     margin-bottom: 10px;
-    opacity: 0.4;
     background: #9694a2;
     cursor: pointer;
 }
@@ -358,17 +358,28 @@ div#carousel {
     border-radius: 20px;
     margin-bottom: 10px;
     background: #dd4131;
-    opacity: .8;
     cursor: pointer;
+}
+
+.nodeLine {
+    height: 1;
+    width: 100%;
+    background: #9694a2;
+    margin-top: -16px;
+    margin-bottom: 20px;
+    z-index: -10;
+    opacity: 0.5;
 }
 
 .startDimmed {
     color: #9694a2;
-    opacity: 0.4;
-    font-size: 11px;
+    /*    opacity: 0.4;*/
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .startLit {
     color: #dd4131;
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: bold;
 }

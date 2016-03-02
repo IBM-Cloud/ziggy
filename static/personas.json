@@ -1,0 +1,72 @@
+{
+    "results": [
+        {
+            "albums": [
+        "Low",
+        "Heros",
+        "Lodger"
+      ],
+            "name": "Berlin"
+    },
+        {
+            "albums": [
+        "David Bowie",
+        "Space Oddity",
+        "The Man Who Sold The World"
+      ],
+            "name": "Early"
+    },
+        {
+            "albums": [
+        "Outside",
+        "Earthling",
+        "Hours"
+      ],
+            "name": "Earthling"
+    },
+        {
+            "albums": [
+        "The Next Day",
+        "Blackstar"
+      ],
+            "name": "Lazarus"
+    },
+        {
+            "albums": [
+        "Let's Dance",
+        "Tonight",
+        "Never Let Me Down"
+      ],
+            "name": "Modern"
+    },
+        {
+            "albums": [
+        "Heathen",
+        "Reality"
+      ],
+            "name": "None"
+    },
+        {
+            "albums": [
+        "Scary Monsters"
+      ],
+            "name": "Pierrot"
+    },
+        {
+            "albums": [
+        "Young Americans",
+        "Station To Station"
+      ],
+            "name": "Thin White Duke"
+    },
+        {
+            "albums": [
+        "The Rise And Fall Of Ziggy Stardust And The Spiders From Mars",
+        "Aladdin Sane",
+        "Pin Ups",
+        "Diamond Dogs"
+      ],
+            "name": "Ziggy Stardust"
+    }
+  ]
+}
