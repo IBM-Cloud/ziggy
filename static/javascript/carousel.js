@@ -6,8 +6,12 @@
           background: "#dd4131",
           date: "1967-72",
           start: "1967",
-          end: "1972"
-    },
+          end: "1972",
+          sketch: "svg/early.svg",
+          mugshot: "mug/early.svg",
+          photo: "photo/early.png",
+          albums: ["David Bowie", "Space Oddity", "The Man Who Sold The World"]
+      },
       {
           name: "Ziggy Stardust",
           image: "ziggy.svg",
@@ -15,8 +19,12 @@
           background: "#9694a2",
           date: "1972-73",
           start: "1972",
-          end: "1973"
-    },
+          end: "1973",
+          sketch: "svg/ziggy.svg",
+          mugshot: "mug/ziggy.svg",
+          photo: "photo/ziggy.png",
+          albums: ["The Rise And Fall Of Ziggy Stardust And The Spiders From Mars"]
+      },
       {
           name: "Aladdin Sane",
           image: "aladdin.svg",
@@ -24,8 +32,12 @@
           background: "#f9df3c",
           date: "1973-74",
           start: "1973",
-          end: "1974"
-    },
+          end: "1974",
+          sketch: "svg/aladdin.svg",
+          mugshot: "mug/aladdin.svg",
+          photo: "photo/aladdin.png",
+          albums: ["Aladdin Sane", "Pin Ups", "Diamond Dogs"]
+      },
       {
           name: "Thin White Duke",
           image: "duke.svg",
@@ -33,9 +45,12 @@
           background: "#f9df3c",
           date: "1974-76",
           start: "1975",
-          end: "1976"
-    },
-
+          end: "1976",
+          sketch: "svg/duke.svg",
+          mugshot: "mug/duke.svg",
+          photo: "photo/duke.png",
+          albums: ["Young Americans", "Station To Station"]
+      },
       {
           name: "Berlin Trilogy",
           image: "berlin.svg",
@@ -43,8 +58,12 @@
           background: "#014f83",
           date: "1976-79",
           start: "1976",
-          end: "1979"
-    },
+          end: "1979",
+          sketch: "svg/berlin.svg",
+          mugshot: "mug/berlin.svg",
+          photo: "photo/berlin.png",
+          albums: ["Low", "Heros", "Lodger"]
+      },
       {
           name: "Pierrot",
           image: "pierrot.svg",
@@ -52,8 +71,12 @@
           background: "#b18f67",
           date: "1980-83",
           start: "1980",
-          end: "1983"
-    },
+          end: "1983",
+          sketch: "svg/pierrot.svg",
+          mugshot: "mug/pierrot.svg",
+          photo: "photo/pierrot.png",
+          albums: ["Scary Monsters"]
+      },
       {
           name: "Modern Love",
           image: "modern.svg",
@@ -61,8 +84,12 @@
           background: "#8fa6ce",
           date: "1984-88",
           start: "1984",
-          end: "1988"
-    },
+          end: "1988",
+          sketch: "svg/modern.svg",
+          mugshot: "mug/modern.svg",
+          photo: "photo/modern.png",
+          albums: ["Let's Dance", "Tonight", "Never Let Me Down"]
+      },
       {
           name: "Earthling",
           image: "earthling.svg",
@@ -70,8 +97,12 @@
           background: "#7bc253",
           date: "1992-98",
           start: "1992",
-          end: "1998"
-    },
+          end: "1998",
+          sketch: "svg/earthling.svg",
+          mugshot: "mug/earthling.svg",
+          photo: "photo/earthling.png",
+          albums: ["Outside", "Earthling", "Hours"]
+      },
       {
           name: "Lazarus",
           image: "lazarus.svg",
@@ -79,8 +110,12 @@
           background: "#f3776b",
           date: "2013-16",
           start: "2013",
-          end: "2016"
-    }
+          end: "2016",
+          sketch: "svg/lazarus.svg",
+          mugshot: "mug/lazarus.svg",
+          photo: "photo/lazarus.png",
+          albums: ["The Next Day", "Blackstar"]
+      }
 ]
 
   var currentBowie = 0;
@@ -248,5 +283,5 @@
               nextBowie = 0;
           }
           chooseBowie(nextBowie);
-      }, 5000);
+      }, 4000);
   }

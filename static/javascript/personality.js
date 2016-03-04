@@ -345,15 +345,15 @@ function readPersonaData() {
 
     var xmlhttp = new XMLHttpRequest();
 
-    var key;
+    //    var key;
+    //
+    //    mugshots.forEach(function (m) {
+    //        if (m.name === persona) {
+    //            key = m.name;
+    //        }
+    //    });
 
-    mugshots.forEach(function (m) {
-        if (m.name === persona) {
-            key = m.key;
-        }
-    });
-
-    var url = '../api/persona/' + key;
+    var url = '../api/persona/' + persona;
 
     var openness = [];
 

@@ -58,10 +58,11 @@ for persona in client['personas']:
 def assemble_persona_text(persona):
     text = ''
     for album in client['personas'][persona]['albums']:
-        for song in client['albums'][album]['songs']:
+        for song in client['albums'][album['title']]['songs']:            
             try:
                 if 'lyrics' in client['songs'][song]:
                     text += client['songs'][song]['lyrics']
+                    print text
             except KeyError as e:
                 print e  #just swallow it silently for now ToDo: something better...
     return text
@@ -121,9 +122,14 @@ def Welcome():
 @app.route('/init')
 def Initialize():
     print 'this is a test' ;
-    with open('personas.json') as json_file:
+    
+    with open('static/personas.json') as json_file:
         json_data = json.load(json_file)
-        print json_data 
+        # print json_data 
+        
+        for p in json_data['results']:
+            client['personas'].create_document(p)
+
         print 'loaded file' ;
     return
 
@@ -138,20 +144,39 @@ def Setup():
 @app.route('/api/personas')
 def GetPersonas():
     response = []
+    
     for persona in client['personas']:
-        response.append({'name': persona['_id'], 'albums': persona['albums']})
+        
+        albums = []
+        
+        for album in persona['albums']:
+            albums.append(album['title']);
+        
+        response.append({'name': persona['_id'], 'albums': albums})
 
     return jsonify(results=response)
 
 @app.route('/api/persona/<persona>')
 def GetPersona(persona):
+    
+    print persona
+    
     if cached_persona_insights[persona] is None:
-        insight = personality_insights.profile(json.dumps({'text': assemble_persona_text(persona), 'contenttype': 'text/html'}))
+        
+        personality = assemble_persona_text(persona)
+        print personality
+        
+        insight = personality_insights.profile(json.dumps({'text':personality, 'contenttype': 'text/html'}))
         cached_persona_insights[persona] = insight
     else:
         insight = cached_persona_insights[persona]
 
     return jsonify(results=insight)
+
+#@app.route('/api/collected')
+#def Collected():
+#    for persona in json.loads(personas.data)['results']:
+
 
 @app.route('/api/twitter/<screenname>')
 def InsightsFromTwitter(screenname):

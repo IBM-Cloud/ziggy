@@ -312,10 +312,10 @@ div#carousel {
     justify-content: center;
     order: 2;
     /* NEW */
-    -webkit-transition: opacity 2s ease-in-out;
-    -moz-transition: opacity 2s ease-in-out;
-    -o-transition: opacity 2s ease-in-out;
-    transition: opacity 2s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 
@@ -382,4 +382,72 @@ div#carousel {
     color: #dd4131;
     font-size: 12px;
     font-weight: bold;
+}
+
+.trim {
+    background: #f3776b;
+    height: 20px;
+}
+
+.compare {
+    background: #dd4131;
+    margin: 0;
+    padding: 0;
+    height: 100px;
+    border-bottom: 1px solid #f3776b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    /*    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
+}
+
+
+/* charts */
+
+.charts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.chart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 20px;
+}
+
+.chartIcon {
+    height: 20px;
+    width: 20px;
+    margin: 6px;
+    opacity: 0.7;
+}
+
+.chartTitle {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    flex-direction: row;
+    color: #555;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.chartContent {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    height: 300px;
+    width: 300px;
+    margin: 20px;
+    background: aliceblue;
 }
