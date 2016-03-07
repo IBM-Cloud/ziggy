@@ -173,10 +173,18 @@ def GetPersona(persona):
 
     return jsonify(results=insight)
 
-#@app.route('/api/collected')
-#def Collected():
-#    for persona in json.loads(personas.data)['results']:
-
+@app.route('/api/collected')
+def Collected():
+    for persona in client['personas']:
+        
+        print persona
+        
+        if cached_persona_insights[persona] is not None:
+            insight = cached_persona_insights[persona]
+            print insight
+            
+    return
+            
 
 @app.route('/api/twitter/<screenname>')
 def InsightsFromTwitter(screenname):

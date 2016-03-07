@@ -125,7 +125,7 @@
       carousel = document.getElementById('carousel');
       var h = carousel.parentElement.parentElement.clientHeight;
 
-      var personaHeight = h - 320;
+      var personaHeight = h - 360;
 
       for (var count = 0; count < bowies.length; count++) {
           var item = document.createElement('div');
@@ -163,8 +163,8 @@
 
           holder.appendChild(image);
           holder.appendChild(description);
-          holder.appendChild(style);
-          holder.appendChild(date);
+          //          holder.appendChild(style);
+          //          holder.appendChild(date);
 
           if (count != 0) {
               //              item.style.display = 'block';

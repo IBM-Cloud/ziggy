@@ -26,9 +26,9 @@ a {
 .top {
     margin: 0;
     padding: 0;
-    background: #7bc253;
+    background: #ffffff;
     height: 100px;
-    border-bottom: 1px solid #6eae4a;
+    border-bottom: 1px solid #eeeeee;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,7 +45,7 @@ a {
 }
 
 .name {
-    color: #fff;
+    color: #555;
     font-size: 28px;
     margin-bottom: 2px;
     font-weight: bolder;
@@ -74,7 +74,7 @@ a {
     font-size: 16px;
     font-weight: bold;
     padding-bottom: 8px;
-    color: #dd4131;
+    color: #555;
 }
 
 .indexBowie {
@@ -127,7 +127,7 @@ a {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: 160px;
     margin: 0;
     background: #ffffff;
     align-content: center;
@@ -374,6 +374,7 @@ div#carousel {
 .startDimmed {
     color: #9694a2;
     /*    opacity: 0.4;*/
+    /*    opacity: 0.4;*/
     font-size: 12px;
     font-weight: bold;
 }
@@ -390,11 +391,11 @@ div#carousel {
 }
 
 .compare {
-    background: #dd4131;
+    background: #fff;
     margin: 0;
     padding: 0;
     height: 100px;
-    border-bottom: 1px solid #f3776b;
+    border-bottom: 1px solid #eee;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -413,6 +414,7 @@ div#carousel {
     justify-content: center;
     align-content: center;
     align-items: center;
+    margin: 40px;
 }
 
 .chart {
@@ -449,5 +451,9 @@ div#carousel {
     height: 300px;
     width: 300px;
     margin: 20px;
-    background: aliceblue;
+}
+
+.blackstar {
+    width: 164px;
+    height: 24px;
 }
