@@ -6,11 +6,26 @@ var green = [123, 194, 83];
 var red = [221, 65, 49];
 var blue = [1, 79, 131];
 var yellow = [249, 223, 60];
-var orange = [243, 119, 107];
+var orange = [255, 199, 102]; // [243, 119, 107];
+
+var mode = "time";
 
 var randomScalingFactor = function () {
     return Math.round(Math.random() * 100)
 };
+
+function toggleChart() {
+
+    if (mode === "time") {
+        mode = "persona";
+    } else {
+        mode = "time";
+    }
+
+    readCombinedData();
+
+    console.log('toggle');
+}
 
 function makeRGB(color, opacity) {
     var rgb = 'rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ',' + opacity + ')';
@@ -69,7 +84,14 @@ function orderData(data) {
     orderedData.data = [];
 
     sorted.forEach(function (element) {
-        orderedData.labels[sortedCount] = element.year;
+
+        if (mode === "time") {
+            orderedData.labels[sortedCount] = element.year;
+        } else {
+            orderedData.labels[sortedCount] = element.name;
+        }
+
+
         orderedData.data[sortedCount] = element.value;
         sortedCount++;
     });
@@ -90,24 +112,47 @@ function buildLineData(data, color) {
     return lineData;
 }
 
+
+
 function addChart(anchor, data) {
     var openness = document.getElementById(anchor);
 
+    openness.innerHTML = "";
+
     var opennessChart = document.createElement('canvas');
 
-    opennessChart.height = 300;
-    opennessChart.width = 300;
+
+    if (mode === "time") {
+        opennessChart.height = 300;
+        openness.style.height = '300px';
+    } else {
+        opennessChart.height = 400;
+        openness.style.height = '400px';
+    }
+
+
+    opennessChart.width = 400;
 
     openness.appendChild(opennessChart);
 
     var ctx = opennessChart.getContext("2d");
 
-    var chart = new Chart(ctx).Line(data, {
-        scaleOverride: true,
-        scaleSteps: 10,
-        scaleStepWidth: 10,
-        scaleStartValue: 0
-    });
+    if (mode === "time") {
+
+        var chart = new Chart(ctx).Line(data, {
+            scaleOverride: true,
+            scaleSteps: 10,
+            scaleStepWidth: 10,
+            scaleStartValue: 0
+        });
+    } else {
+        var chart = new Chart(ctx).Bar(data, {
+            scaleOverride: true,
+            scaleSteps: 10,
+            scaleStepWidth: 10,
+            scaleStartValue: 0
+        });
+    }
 }
 
 function readCombinedData() {

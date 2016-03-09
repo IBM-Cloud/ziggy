@@ -8,6 +8,10 @@
     -webkit-font-smoothing: antialiased;
 }
 
+.comparison {
+    background-color: #FFFFFF;
+}
+
 a {
     text-decoration: none;
 }
@@ -404,6 +408,93 @@ div#carousel {
     /*    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
 }
 
+.onoffswitch {
+    position: relative;
+    width: 120px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+}
+
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 24px;
+    padding: 0;
+    line-height: 24px;
+    font-size: 14px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "by time";
+    padding-left: 10px;
+    background-color: #fff;
+    color: #777;
+}
+
+.onoffswitch-inner: after {
+    content: "by persona";
+    padding-right: 10px;
+    background-color: #1CAFF6;
+    color: #777;
+    text-align: right;
+}
+
+.onoffswitch-inner:after {
+    content: "by persona";
+    padding-right: 10px;
+    background-color: #ffffff;
+    color: #777;
+    text-align: right;
+}
+
+.onoffswitch-switch {
+    display: block;
+    width: 18px;
+    margin: 3px;
+    background: #FFA200;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 92px;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+}
+
 
 /* charts */
 
@@ -449,8 +540,8 @@ div#carousel {
     align-items: center;
     align-self: center;
     height: 300px;
-    width: 300px;
-    margin: 20px;
+    width: 400px;
+    margin: 40px;
 }
 
 .blackstar {
