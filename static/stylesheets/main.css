@@ -38,6 +38,7 @@ a {
     align-items: center;
     -webkit-justify-content: center;
     justify-content: center;
+    z-index: 100;
     /*    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
 }
 
@@ -137,6 +138,7 @@ a {
     align-content: center;
     justify-content: center;
     border-top: 1px solid #eee;
+    z-index: -100;
 }
 
 .footer-container {
@@ -547,4 +549,99 @@ div#carousel {
 .blackstar {
     width: 164px;
     height: 24px;
+}
+
+.nav-image {
+    height: 36px;
+    width: 36px;
+}
+
+.nav-element {
+    border-radius: 100px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    background: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: center;
+    z-index: 200;
+    margin-top: 20px;
+}
+
+.twitter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 40px;
+}
+
+.twitterInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.at {
+    height: 48px;
+    width: 48px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border: 1px solid #ffeccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background: #ffeccc;
+    color: #ffa200;
+    font-weight: bold;
+}
+
+.inputField {
+    font-size: 18px;
+    height: 50px;
+    margin-left: -1px;
+    border: 1px solid #ffeccc;
+    padding-left: 10px;
+    color: #ffa200;
+    font-weight: bold;
+}
+
+input:focus {
+    outline: none;
+}
+
+.butt {
+    height: 48px;
+    width: 30px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid #ffeccc;
+    margin-left: -1px;
+    background: #ffeccc;
+}
+
+.stage {
+    height: 0;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    transition: height 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    z-index: -100;
 }

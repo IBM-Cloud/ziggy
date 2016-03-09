@@ -214,7 +214,6 @@ function readCombinedData() {
             addChart('agreeableness', buildLineData(agreeableness, orange));
             addChart('extraversion', buildLineData(extraversion, orange));
             addChart('neuroticism', buildLineData(neuroticism, orange));
-
         };
     }
 

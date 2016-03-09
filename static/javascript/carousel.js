@@ -255,6 +255,18 @@
       })
   }
 
+  function compare(e) {
+      var path = './static/comparison.html';
+
+      window.open(path, '_self', false);
+  }
+
+  function persona(e) {
+      var path = './static/persona.html';
+
+      window.open(path, '_self', false);
+  }
+
   function shareInsight(e) {
       //      var path = './static/personality.html?persona=' + e.currentTarget.id;
       var path = './static/personality.html?persona=' + bowies[currentBowie].name;
