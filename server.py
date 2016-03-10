@@ -21,6 +21,10 @@ from watson_developer_cloud import PersonalityInsightsV2 as PersonalityInsights
 from twitter import *
 from scipy.spatial import distance
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 if 'TWITTER_CREDS' not in os.environ:
     raise RuntimeError('TWITTER_CREDS not found.')
 else:
@@ -62,7 +66,6 @@ def assemble_persona_text(persona):
             try:
                 if 'lyrics' in client['songs'][song]:
                     text += client['songs'][song]['lyrics']
-                    print text
             except KeyError as e:
                 print e  #just swallow it silently for now ToDo: something better...
     return text
@@ -158,13 +161,10 @@ def GetPersonas():
 
 @app.route('/api/persona/<persona>')
 def GetPersona(persona):
-    
-    print persona
-    
+        
     if cached_persona_insights[persona] is None:
         
         personality = assemble_persona_text(persona)
-        print personality
         
         insight = personality_insights.profile(json.dumps({'text':personality, 'contenttype': 'text/html'}))
         cached_persona_insights[persona] = insight
@@ -184,7 +184,6 @@ def Collected():
             print insight
             
     return
-            
 
 @app.route('/api/twitter/<screenname>')
 def InsightsFromTwitter(screenname):

@@ -49,7 +49,6 @@ SortingHat.prototype.renderBowie = function (e) {
     loading.style.color = 'orange';
     stage.appendChild(loading);
 
-
     var username = document.getElementById('twitterForm');
 
     console.log(username.value);
