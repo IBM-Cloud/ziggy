@@ -30,40 +30,60 @@
     </div>
     <div class='charts'>
         <div class='chart'>
-            <div class="chartTitle"><img class="chartIcon" src="images/bigfive/openness.png"> Openness</div>
+            <div class="chartTitle"><img class="chartIcon" src="images/bigfive/openness.png">Openness</div>
+            <div class="explanation">Appreciation for art, emotion, adventure, unusual ideas, curiosity, and variety of experience. It reflects the degree of intellectual curiosity, creativity and a preference for novelty and variety a person has. It is also described as the extent to which a person is imaginative or independent, and depicts a personal preference for a variety of activities over a strict routine.</div>
             <div class="chartContent" id='openness'></div>
+            <select class="chartSelect" id='openness-select' onchange="opennessTrait()">
+                <option value="combined">Combined</option>
+            </select>
         </div>
         <div class='chart'>
             <div class="chartTitle"><img class="chartIcon" src="images/bigfive/conscientiousness.png">Conscientiousness</div>
+            <div class="explanation">A tendency to be organized and dependable, show self-discipline, act dutifully, aim for achievement, and prefer planned rather than spontaneous behavior. High conscientiousness are often perceived as stubborn and obsessive. Low conscientiousness are flexible and spontaneous, but can be perceived as sloppy and unreliable.</div>
             <div class="chartContent" id='conscientiousness'>
             </div>
+            <select class="chartSelect" id='conscientiousness-select' onchange="conscientiousnessTrait()">
+                <option value="combined">Combined</option>
+            </select>
         </div>
         <div class='chart'>
             <div class="chartTitle"><img class="chartIcon" src="images/bigfive/agreeableness.png">Agreeableness</div>
+            <div class="explanation">A tendency to be compassionate and cooperative rather than suspicious and antagonistic towards others. It is also a measure of one's trusting and helpful nature, and whether a person is generally well-tempered or not. High agreeableness is often seen as naive or submissive. Low agreeableness personalities are often competitive or challenging people, which can be seen as argumentative or untrustworthy.</div>
             <div class="chartContent" id='agreeableness'></div>
+            <select class="chartSelect" id='agreeableness-select' onchange="agreeablenessTrait()">
+                <option value="combined">Combined</option>
+            </select>
         </div>
         <div class='chart'>
             <div class="chartTitle"><img class="chartIcon" src="images/bigfive/extraversion.png">Extraversion</div>
+            <div class="explanation">Energy, positive emotions, surgency, assertiveness, sociability and the tendency to seek stimulation in the company of others, and talkativeness. High extraversion is often perceived as attention-seeking, and domineering. Low extraversion causes a reserved, reflective personality, which can be perceived as aloof or self-absorbed.</div>
             <div class="chartContent" id='extraversion'></div>
+            <select class="chartSelect" id='extraversion-select' onchange="extraversionTrait()">
+                <option value="combined">Combined</option>
+            </select>
         </div>
         <div class='chart'>
-            <div class="chartTitle"><img class="chartIcon" src="images/bigfive/neuroticism.png">Neuroticism</div>
-            <div class="chartContent" id='neuroticism'></div>
+            <div class="chartTitle "><img class="chartIcon " src="images/bigfive/neuroticism.png ">Neuroticism</div>
+            <div class="explanation">The tendency to experience unpleasant emotions easily, such as anger, anxiety, depression, and vulnerability. Neuroticism also refers to the degree of emotional stability and impulse control and is sometimes referred to by its low pole, "emotional stability". A high need for stability manifests as a stable and calm personality, but can be seen as uninspiring and unconcerned. A low need for stability causes a reactive and excitable personality, often very dynamic individuals, but they can be perceived as unstable or insecure.</div>
+            <div class="chartContent " id='neuroticism'></div>
+            <select class="chartSelect " id='neuroticism-select' onchange="neuroticismTrait()">
+                <option value="combined">Combined</option>
+            </select>
         </div>
     </div>
     <!--
-   <div class="footer">
-    <div class="footer-container">
-        <div><img class="watson" src="static/images/watson-logo.png"></div>
-        <div class="baseline">BUILT ON IBM BLUEMIX</div>
-        <div><img class="bluemix" src="static/images/bluemix-logo.png"></div>
+   <div class="footer ">
+    <div class="footer-container ">
+        <div><img class="watson " src="static/images/watson-logo.png "></div>
+        <div class="baseline ">BUILT ON IBM BLUEMIX</div>
+        <div><img class="bluemix " src="static/images/bluemix-logo.png "></div>
     </div>
 </div>
 -->
 </body>
-<script src="./javascript/Chart.min.js"></script>
+<script src="./javascript/Chart.min.js "></script>
 
-<script src="./javascript/comparison.js"></script>
+<script src="./javascript/comparison.js "></script>
 
 </html>
 <html>

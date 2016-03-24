@@ -400,6 +400,7 @@ function readPersonaData() {
                 factor.children.forEach(function (trait) {
 
                     var fromName = document.createElement('div');
+
                     fromName.className = 'content';
 
                     fromName.innerHTML = trait.name;
@@ -414,7 +415,6 @@ function readPersonaData() {
 
                     total = total + contribution;
 
-
                     var label = trait.name + ' ' + trait.percentage.toFixed(2) * 100 + '%';
 
                     var factorlabel = factor.id + ' ' + percentage.toFixed(2) * 100 + '%';
@@ -422,7 +422,6 @@ function readPersonaData() {
                     var traitdata = [factorlabel, label, contribution];
 
                     if (contribution > 0) {
-
                         factordata.push(traitdata);
                     }
                 })
