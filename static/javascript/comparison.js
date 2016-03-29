@@ -160,14 +160,16 @@ function addChart(anchor, data) {
             scaleOverride: true,
             scaleSteps: 10,
             scaleStepWidth: 10,
-            scaleStartValue: 0
+            scaleStartValue: 0,
+            scaleShowVerticalLines: false
         });
     } else {
         var chart = new Chart(ctx).Bar(data, {
             scaleOverride: true,
             scaleSteps: 10,
             scaleStepWidth: 10,
-            scaleStartValue: 0
+            scaleStartValue: 0,
+            scaleShowVerticalLines: false
         });
     }
 }

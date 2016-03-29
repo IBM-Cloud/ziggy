@@ -7,7 +7,7 @@
 <body class="persona" onload="drawChart()">
     <div id="fb-root"></div>
     <div class="banner">
-        <div class="home" onClick="window.open('../../');"><img class="homeicon" src="images/home.png">Home</div>
+        <div class="home" onClick="window.open('../../');"><img class="homeicon" src="images/home.svg">Home</div>
         <div class="title"><img class="blackstar" src="images/bs.png"> </div>
         <div class="social">
             <div class="twit">
@@ -60,20 +60,38 @@
             <div id="personaName" class="personaName"></div>
             <div id="twitterName" class="twitterName">by @antonmc</div>
             <div id="description" class="description"></div>
-            <div class="location"><img class="map" src="images/location.png">
+            <div class="location"><img class="map" src="images/location.svg">
                 <div class="place" id="location"></div>
             </div>
-            <div class="location"><img class="map" src="images/calendar.png">
+            <div class="location"><img class="map" src="images/calendar.svg">
                 <div class="place" id="date"></div>
             </div>
-            <div class="location"><img class="map" src="images/music.png">
+            <div class="location"><img class="map" src="images/speaker.svg">
                 <div class="place" id="date">Albums</div>
             </div>
+
             <div class="albums" id="albums"></div>
+            <div class="location"><img class="map" src="images/video.svg">
+                <div class="place" id="date">Video</div>
+            </div>
+            <iframe class="video" id="video" width="260" height="160" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="middle" id="tweets">
             <div class="tweetHeading">
                 <div class="tweetHeadinglabel">Personality</div>
+            </div>
+            <div class="tweet">
+                <div class="icon"><img src="images/lyrics.svg" class="lyricsimage"></div>
+                <div class="content">
+                    <div class="from">
+                        <div class="fullname">Lyrics</div>
+                        <div class="fromName">@Lyrics</div>
+                        <div class="fromName"> - </div>
+                        <div class="fromName">Mar 29</div>
+                    </div>
+                    <div class="tweetContent">The following diagrams are a psychological analyis of the lyrics in Bowie's albums. <a target="_blank" href="http://www.azlyrics.com/b/bowie.html#2204">You can explore his lyrics here</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="right">

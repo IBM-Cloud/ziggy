@@ -37,8 +37,8 @@
             }
             
             .homeicon {
-                height: 20px;
-                width: 20px;
+                height: 24px;
+                width: 24px;
                 padding-right: 5px;
             }
             
@@ -110,6 +110,15 @@
             }
             
             .iconimage {
+                height: 36px;
+                width: 36px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-content: center;
+            }
+            
+            .lyricsimage {
                 height: 30px;
                 width: 30px;
                 display: flex;
@@ -386,8 +395,8 @@
             }
             
             .map {
-                height: 20px;
-                width: 20px;
+                height: 24px;
+                width: 24px;
             }
             
             .place {
@@ -399,10 +408,18 @@
                 margin-bottom: 15px;
             }
             
+            .albums {
+                padding-bottom: 10px;
+            }
+            
             .album {
                 height: 83px;
                 width: 83px;
                 border-radius: 5px;
                 margin: 3px;
                 border: 1px solid #eee;
+            }
+            
+            .video {
+                margin: 5px;
             }

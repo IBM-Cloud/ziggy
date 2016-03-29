@@ -1,87 +1,3 @@
-var mugshots = [
-    {
-        name: "Man Who Sold The World",
-        location: "London",
-        key: "Early",
-        image: "early.png",
-        style: "Psychedelic Folk",
-        background: "#dd4131",
-        date: "1967-72",
-        description: "Much of The Man Who Sold the World had a distinct heavy metal edge that distinguishes it from Bowie's other releases, and has been compared to contemporary acts such as Led Zeppelin and Black Sabbath."
-    },
-    {
-        name: "Ziggy Stardust",
-        location: "London, New York",
-        key: "Ziggy Stardust",
-        image: "ziggy.png",
-        style: "Glam Rock",
-        background: "#9694a2",
-        date: "1972-73",
-        description: "A rock star who acts as a messenger for extraterrestrial beings"
-    },
-    {
-        name: "Aladdin Sane",
-        location: "London, New York",
-        key: "Ziggy Stardust",
-        image: "aladdin.png",
-        style: "Glam Rock",
-        background: "#f9df3c",
-        date: "1972-73",
-        description: "The name of the album is a pun on 'A Lad Insane'. Although technically a new Bowie 'character', Aladdin Sane was essentially a development of Ziggy Stardust in his appearance and persona"
-    },
-
-    {
-        name: "Berlin Trilogy",
-        location: "Berlin",
-        key: "Berlin",
-        image: "berlin.png",
-        style: "Industrial",
-        background: "#014f83",
-        date: "1976-79",
-        description: "Before the end of 1976, Bowie's interest in the burgeoning German music scene, as well as his drug addiction, prompted him to move to West Berlin to clean up and revitalise his career. There he was often seen riding a bicycle between his apartment on Hauptstraße in Schöneberg and Hansa Tonstudi"
-    },
-    {
-        name: "Pierrot",
-        location: "New York",
-        key: "Pierrot",
-        image: "pierrot.png",
-        style: "New Wave",
-        background: "#b18f67",
-        date: "1980-83",
-        description: "Scary Monsters (And Super Creeps) (1980) produced the number one hit 'Ashes to Ashes', featuring the textural work of guitar-synthesist Chuck Hammer and revisiting the character of Major Tom from 'Space Oddity'."
-    },
-    {
-        name: "Modern Love",
-        location: "New York",
-        key: "Modern",
-        image: "modern.png",
-        style: "Pop",
-        background: "#8fa6ce",
-        date: "1984-88",
-        description: "Bowie reached a new peak of popularity and commercial success in 1983 with Let's Dance. Co-produced by Chic's Nile Rodgers, the album went platinum in both the UK and the US. Its three singles became top twenty hits in both countries, where its title track reached number one."
-    },
-    {
-        name: "Earthling",
-        location: "Montreux, New York",
-        key: "Earthling",
-        image: "earthling.png",
-        style: "Electronic, Grunge",
-        background: "#7bc253",
-        date: "1992-98",
-        description: "Electronica-influenced sound partly inspired by the industrial and drum and bass culture of the 1990s"
-    },
-    {
-        name: "Lazarus",
-        location: "New York",
-        key: "Lazarus",
-        image: "lazarus.png",
-        style: "Neoclassicist",
-        background: "#f3776b",
-        date: "2013-16",
-        description: "The music on Blackstar has been characterized as incorporating art rock, jazz, and experimental rock. Bowie had been listening to rapper Kendrick Lamar's 2015 album To Pimp a Butterfly during the recording sessions and cited it as an influence."
-    }
-]
-
 var thisPersona;
 
 function drawChart() {
@@ -211,12 +127,19 @@ function readPersonaData(pdata) {
 
             mug.albums.forEach(function (album) {
 
-                var a = document.createElement('img');
-                a.src = album.cover;
-                a.className = "album"
+                var cover = document.createElement('img');
+                cover.src = album.cover;
+                cover.className = "album"
+
+                var a = document.createElement('a');
+                a.href = album.wikipedia;
+                a.appendChild(cover);
                 console.log(album.cover);
                 albums.appendChild(a);
             })
+
+            var video = document.getElementById('video');
+            video.src = mug.video + '?autoplay=1&cc_load_policy=1';
 
         } else {
 
@@ -297,11 +220,11 @@ function readPersonaData(pdata) {
 
     var images = [];
 
-    images['Openness'] = 'openness.png';
-    images['Conscientiousness'] = 'conscientiousness.png';
-    images['Extraversion'] = 'extraversion.png';
-    images['Agreeableness'] = 'agreeableness.png';
-    images['Neuroticism'] = 'neuroticism.png';
+    images['Openness'] = 'openness.svg';
+    images['Conscientiousness'] = 'conscientiousness.svg';
+    images['Extraversion'] = 'extraversion.svg';
+    images['Agreeableness'] = 'agreeableness.svg';
+    images['Neuroticism'] = 'neuroticism.svg';
 
     var bigfive = [];
 
