@@ -9,7 +9,7 @@
     }
     
     .comparison {
-        background-color: #FFFFFF;
+        background-color: #F3F1EB;
     }
     
     a {
@@ -501,6 +501,11 @@
         align-content: center;
         margin: 20px;
         margin-bottom: 100px;
+        background: white;
+        border-radius: 10px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+        border: 1px solid #ddd;
     }
     
     .chartIcon {
@@ -652,12 +657,14 @@
     
     .chartSelect {
         width: 160px;
+        height: 30px;
         align-self: center;
-        background: #FFF;
-        color: #777;
+        background: rgba(255, 162, 0, 0.1);
+        color: #ff9d00;
         font-weight: bold;
         font-size: 12px;
-        border: 1px solid #ccc;
+        border-radius: 10px;
+        border: none;
     }
     
     .explanation {

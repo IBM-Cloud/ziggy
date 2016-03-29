@@ -16,23 +16,17 @@
             "photo": "photo/early.png",
             "description": "Much of The Man Who Sold the World had a distinct heavy metal edge that distinguishes it from Bowie's other releases, and has been compared to contemporary acts such as Led Zeppelin and Black Sabbath.",
             "albums": [{
-                "_id": "David Bowie",
-                "title": "David Bowie",
-                "wikipedia": "",
-                "applemusic": "",
-                "cover": ""
-            }, {
                 "_id": "Space Oddity",
                 "title": "Space Oddity",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/david-bowie.jpg"
                 }, {
                 "_id": "The Man Who Sold The World",
                 "title": "The Man Who Sold The World",
-                "wikipedia": "",
+                "wikipedia": "https://en.wikipedia.org/wiki/The_Man_Who_Sold_the_World_(album)",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/the-man-who-sold-the-world.jpg"
         }]
     }, {
             "_id": "Ziggy Stardust",
@@ -52,9 +46,9 @@
             "albums": [{
                 "_id": "The Rise And Fall Of Ziggy Stardust And The Spiders From Mars",
                 "title": "The Rise And Fall Of Ziggy Stardust And The Spiders From Mars",
-                "wikipedia": "",
+                "wikipedia": "https://en.wikipedia.org/wiki/The_Rise_and_Fall_of_Ziggy_Stardust_and_the_Spiders_from_Mars",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/rise-and-fall-of-ziggy-stardust.jpg"
                 }]
             }, {
             "_id": "Aladdin Sane",
@@ -74,21 +68,21 @@
             "albums": [{
                 "_id": "Aladdin Sane",
                 "title": "Aladdin Sane",
-                "wikipedia": "",
+                "wikipedia": "https://en.wikipedia.org/wiki/Aladdin_Sane",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/aladdin-sane.jpg"
                         }, {
                 "_id": "Pin Ups",
                 "title": "Pin Ups",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/pinups.jpg"
                         }, {
                 "_id": "Diamond Dogs",
                 "title": "Diamond Dogs",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/diamond-dogs.jpg"
                 }]
             },
         {
@@ -109,13 +103,13 @@
                 "title": "Young Americans",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/young-americans.jpg"
             }, {
                 "_id": "Station To Station",
                 "title": "Station To Station",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/station-to-station.jpg"
                 }]
             },
         {
@@ -138,19 +132,19 @@
                 "title": "Low",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/low.jpg"
                 }, {
                 "_id": "Heros",
                 "title": "Heros",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/heroes.jpg"
                 }, {
                 "_id": "Lodger",
                 "title": "Lodger",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/lodger.jpg"
                 }]
             },
         {
@@ -173,7 +167,7 @@
                 "title": "Scary Monsters",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/scary-monsters.jpg"
                 }]
             },
         {
@@ -196,19 +190,19 @@
                 "title": "Let's Dance",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/lets-dance.jpg"
                 }, {
                 "_id": "Tonight",
                 "title": "Tonight",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/tonight.jpg"
                 }, {
                 "_id": "Never Let Me Down",
                 "title": "Never Let Me Down",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/never-let-me-down.jpg"
                 }]
             },
         {
@@ -231,19 +225,19 @@
                 "title": "Outside",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/outside.jpg"
                 }, {
                 "_id": "Earthling",
                 "title": "Earthling",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/earthling.jpg"
                 }, {
                 "_id": "Hours",
                 "title": "Hours",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/hours.jpg"
                 }]
             },
         {
@@ -255,7 +249,7 @@
             "style": "Neoclassicist",
             "background": "#f3776b",
             "date": "2013-16",
-            "start": "2013",
+            "start": "2016",
             "end": "2016",
             "sketch": "svg/lazarus.svg",
             "mugshot": "mug/lazarus.svg",
@@ -266,13 +260,13 @@
                 "title": "The Next Day",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/the-next-day.jpg"
                 }, {
                 "_id": "Blackstar",
                 "title": "Blackstar",
                 "wikipedia": "",
                 "applemusic": "",
-                "cover": ""
+                "cover": "images/covers/blackstar.jpg"
                 }]
             }
 

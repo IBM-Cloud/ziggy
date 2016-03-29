@@ -18,6 +18,7 @@ import requests
 from flask import Flask, jsonify
 from cloudant.account import Cloudant
 from watson_developer_cloud import PersonalityInsightsV2 as PersonalityInsights
+from watson_developer_cloud import ToneAnalyzerV3Beta as ToneAnalyzer
 from twitter import *
 from scipy.spatial import distance
 

@@ -152,8 +152,6 @@ SortingHat.prototype.renderBowie = function (e) {
                     infoArea.appendChild(feedback);
                     infoArea.appendChild(description);
 
-
-
                     var ctx = polar.getContext("2d");
 
                     var stuff = {

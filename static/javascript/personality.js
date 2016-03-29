@@ -89,7 +89,7 @@ function drawChart() {
     google.charts.load('43', {
         'packages': ['sankey', 'corechart', 'bar']
     });
-    google.charts.setOnLoadCallback(readPersonaData);
+    google.charts.setOnLoadCallback(personaData);
 }
 
 function drawBigFive(dataArray) {
@@ -152,25 +152,46 @@ function navigate(e) {
     window.open(path, '_self', false);
 }
 
-function readPersonaData() {
+function personaData() {
+    var url = './personas.json';
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.self = this;
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var data = JSON.parse(xmlhttp.responseText);
+
+            readPersonaData(data.results);
+
+            console.log('fetched personas');
+        }
+    };
+
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
+
+function readPersonaData(pdata) {
 
     var persona = getParameterByName('persona');
 
     console.log('readPersonaData');
 
-    mugshots.forEach(function (mug) {
+    pdata.forEach(function (mug) {
 
         if (mug.name === persona) {
             thisPersona = mug;
             var pic = document.createElement('img');
-            pic.src = 'images/mug/' + mug.image;
+            pic.src = 'images/' + mug.mugshot;
             pic.className = "pic"
 
             var avatar = document.getElementById('avatar');
             avatar.appendChild(pic);
 
             var banner = document.getElementById('banner');
-            banner.style.backgroundImage = 'url(images/header/' + mug.image + ')';
+            banner.style.backgroundImage = 'url(images/' + mug.photo + ')';
             banner.style.backgroundSize = 'cover';
 
             changeColor(mug.background);
@@ -186,6 +207,17 @@ function readPersonaData() {
             var date = document.getElementById('date');
             date.innerHTML = mug.date;
 
+            var albums = document.getElementById('albums');
+
+            mug.albums.forEach(function (album) {
+
+                var a = document.createElement('img');
+                a.src = album.cover;
+                a.className = "album"
+                console.log(album.cover);
+                albums.appendChild(a);
+            })
+
         } else {
 
             var who = document.getElementById('whotofollow');
@@ -197,7 +229,7 @@ function readPersonaData() {
             avatar.className = "followAvatar";
 
             var avatarImage = document.createElement('img');
-            avatarImage.src = 'images/mug/' + mug.image;
+            avatarImage.src = 'images/' + mug.mugshot;
             avatarImage.className = "avatarImage";
 
             avatar.appendChild(avatarImage);
@@ -208,14 +240,11 @@ function readPersonaData() {
 
             avatarName.innerHTML = mug.name;
 
-
             suggestion.appendChild(avatarName);
             suggestion.id = mug.name;
             suggestion.onclick = navigate;
 
             who.appendChild(suggestion);
-
-            // personality.html?persona=Earthling
         }
     });
 
@@ -277,13 +306,9 @@ function readPersonaData() {
     var bigfive = [];
 
     bigfive['Openness'] = 'Appreciation for art, emotion, adventure, unusual ideas, curiosity, and variety of experience.';
-
     bigfive['Conscientiousness'] = 'A tendency to be organized and dependable, show self - discipline, act dutifully, aim for achievement.';
-
     bigfive['Extraversion'] = 'Energy, positive emotions, surgency, assertiveness, sociability.';
-
     bigfive['Agreeableness'] = 'A tendency to be compassionate and cooperative rather than suspicious and antagonistic towards others';
-
     bigfive['Neuroticism'] = 'The tendency to experience unpleasant emotions easily, such as anger, anxiety, depression, and vulnerability.'
 
     function newTweet(id, chartdata) {
@@ -345,14 +370,6 @@ function readPersonaData() {
 
     var xmlhttp = new XMLHttpRequest();
 
-    //    var key;
-    //
-    //    mugshots.forEach(function (m) {
-    //        if (m.name === persona) {
-    //            key = m.name;
-    //        }
-    //    });
-
     var url = '../api/persona/' + persona;
 
     var openness = [];
@@ -410,8 +427,6 @@ function readPersonaData() {
                     var sankey = Math.round(trait.percentage * 100);
 
                     var contribution = Math.round(sankey / factors);
-
-                    console.log(contribution);
 
                     total = total + contribution;
 
