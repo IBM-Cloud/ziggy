@@ -267,6 +267,12 @@
       window.open(path, '_self', false);
   }
 
+  function about(e) {
+      var path = './static/about.html';
+
+      window.open(path, '_self', false);
+  }
+
   function shareInsight(e) {
       //      var path = './static/personality.html?persona=' + e.currentTarget.id;
       var path = './static/personality.html?persona=' + bowies[currentBowie].name;

@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>Ziggy - Bowie Personas through lyric analysis</title>
+    <link rel="stylesheet" href="./stylesheets/main.css">
+</head>
+
+<body class="ziggy">
+    <div class="compare">
+        <!--        <div class="trim"></div>-->
+        <div class="bar">
+            <a href="../">
+                <div class="title">
+                    <img class="blackstar" src="./images/bs.png">
+                </div>
+            </a>
+        </div>
+    </div>
+    <div id="stage" class="about">
+        <div id="wonders" class="wonders"></div>
+
+        <div id="narrative" class="narrative">
+            <div id="panela" class="panel">
+                <div id="littlewonder" class="littlewonder"><strong>LITTLE WONDER</strong></div>
+                <p>This project began as a personal way of processing David Bowie's passing, and bsking in his songs, but it turned into an experiment that a few others liked exploring too.</p>
+                <p><strong>Above all, it is an examination of persona.</strong> David Bowie continually changed, gifting us many new characters and incredible songs, during a beloved career.</p>
+                <p> <strong>The objective of the app is to see if there is a correlation between his written lyrics and his visual personas.</strong></p>
+                <p>We take the lyrics from albums that correspond to each persona/period and run personality insights on them. Clicking on one of the drawings of Bowie on the main view opens a page that links like Twitter for that persona. </p>
+                <p>The 'tweets' contain sankey diagrams that break down the big five personality traits and a little bar chart that shows the combined trait measurements.</p>
+                <p>Displaying this as a Twitter page emphasizes the theme of persona. This app is also trying to honor the personas in a fun way, through mining the data within them, it is trying share an understanding of the personas, and songs over time.</p>
+            </div>
+            <div id="panelb" class="panel">
+                <p>From the main view you can also find a link to a page which shows the big five traits over time, and per persona.</p>
+                <p>A few things stood out to me in this data. For instance, in 1975 - the thin white duke period - Bowie himself suggested this was his darkest most unlike able persona - you can see the openness trait dips significantly.</p>
+                <p>Curiously for the same period this was when his lyrics were most agreeable.</p>
+                <p> His lyrics were not agreeable across the personas at all - Bowie really challenged authority - maybe why he appealed so much. There are also controls to toggle between the contributing sub-traits.</p>
+                <p> This view shows how we can track personality over time.</p>
+                <p>Finally there is a view to find your inner Bowie. Reading your tweets and mapping to the closest markers of one of the personas. We show this comparison in overlapping polar charts. We use a range of visualization to examine the personalities from different angles.</p>
+                <p>This site was hand crafted with css/html - no jquery, no bootstrap ... Just plain css flex layouts ...</p>
+                <p> The main Bowie images were all drawn in illustrator based on the same 'nude' Bowie model</p>
+                <p> Used Pantone colors of spring 2016 as a palette</p>
+                <p>Wanted a consistent, colorful, fun but respectful way to navigate his personalities over time.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-74566000-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<script src="./javascript/about.js"></script>
+
+</html>
+<html>
