@@ -190,8 +190,6 @@
 
           var c = personaHeight * count;
 
-          console.log(personaHeight * count);
-
           item.appendChild(holder);
 
           carousel.appendChild(item);

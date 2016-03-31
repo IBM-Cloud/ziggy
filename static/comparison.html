@@ -20,12 +20,18 @@
         </div>
     </div>
     <div class='charts'>
-        <div class="onoffswitch">
-            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffswitch1" checked="" on onchange="toggleChart(this)">
-            <label class="onoffswitch-label" for="onoffswitch1">
-                <div class="onoffswitch-inner"></div>
+        <div class="context">
+            <div class="chartinfo">
+                <p>These charts plot the <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html">big five personality traits</a> from the lyrics of albums related to <a href="https://en.wikipedia.org/wiki/David_Bowie">David Bowie's personas</a> over time. There is one card for each trait, and a picker within each card that allows comparison of contributing factors. You can toggle between viewing the data by persona, or by time.
+                    <p>You can add your own thoughts below.</p>
+            </div>
+            <div class="onoffswitch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffswitch1" checked="" on onchange="toggleChart(this)">
+                <label class="onoffswitch-label" for="onoffswitch1">
+                    <div class="onoffswitch-inner"></div>
 
-                <span class="onoffswitch-switch"></span></label>
+                    <span class="onoffswitch-switch"></span></label>
+            </div>
         </div>
     </div>
     <div class='charts'>
@@ -71,6 +77,37 @@
             </select>
         </div>
     </div>
+    <div class='charts'>
+        <div class="context">
+            <div class="chartinfo">
+                <div id="disqus_thread" class="disqus"></div>
+                <script>
+                    /**
+                     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                     */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function () { // DON'T EDIT BELOW THIS LINE
+                        var d = document,
+                            s = d.createElement('script');
+
+                        s.src = '//ziggy-bluemix.disqus.com/embed.js';
+
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+        </div>
+    </div>
+    <script id="dsq-count-scr" src="//ziggy-bluemix.disqus.com/count.js" async></script>
+
     <!--
    <div class="footer ">
     <div class="footer-container ">

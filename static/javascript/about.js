@@ -29,6 +29,11 @@ function littleWonders(data) {
         sketch.src = 'images/' + persona.sketch;
         sketch.className = "imageBowie";
         sketch.style.height = '240px';
+        sketch.title = persona.name;
+        sketch.onclick = function (e) {
+            var path = './personality.html?persona=' + persona.name;
+            window.open(path, '_self', false);
+        }
 
         wonders.appendChild(sketch);
     })
