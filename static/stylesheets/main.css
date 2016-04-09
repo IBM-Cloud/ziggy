@@ -697,7 +697,7 @@
     }
     
     .littlewonder {
-        font-size: 30px;
+        font-size: 20px;
         font-weight: bold;
         /*        color: #9692a1;*/
     }
@@ -771,6 +771,7 @@
         flex-direction: column;
         justify-content: center;
         align-self: center;
+        padding-bottom: 10px;
     }
     
     .disqus {

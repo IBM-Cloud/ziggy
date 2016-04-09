@@ -22,24 +22,27 @@
         <div id="narrative" class="narrative">
             <div id="panela" class="panel">
                 <div id="littlewonder" class="littlewonder"><strong><a href="https://en.wikipedia.org/wiki/Little_Wonder_(song)">LITTLE WONDER</a></strong></div>
-                <p>This project began as a personal way of processing David Bowie's passing, absorbing and reflecting his seasons and songs, but turned into an experiment to share.</p>
+                <p>This project began as a personal way of rembering David Bowie, absorbing and reflecting his seasons and songs, but turned into an experiment to share.</p>
                 <p>It is most of all <strong>an examination of personas</strong> using the <a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits">big five personality traits</a>. David Bowie continually changed, gifting us many new characters and incredible songs, during a beloved career.</p>
                 <p> The objective of the project is to see if there is a <strong>correlation between his written lyrics and his visual personas.</strong></p>
-                <p>We take the lyrics from albums that correspond to each persona/period and run <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html"> Watson Personality Insights</a> on them. Clicking on one of the drawings of Bowie on the <a href="..">main page</a> opens another page that looks like
-                    <a href="static/personality.html?persona=Earthling"> Twitter account for each persona. </a></p>
+                <p>We take the lyrics from albums that correspond to each persona/period and run <a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html"> Watson Personality Insights</a> on them. </p>
                 <div class="concept">
                     <img src="images/concept.svg" height="150px">
                 </div>
-                <p>The 'tweets' contain <a href="https://en.wikipedia.org/wiki/Sankey_diagram">sankey diagrams</a> that break down the big five personality traits and a little bar chart that shows the combined trait measurements.</p>
-                <p>Displaying this as a Twitter page emphasizes the theme of persona. This project is also trying to honor the personas in a fun way, through mining the data within them, it is trying to relate an understanding of the personas, and songs over time.</p>
+
+                <p>Clicking on one of the drawings of Bowie on the <a href="..">main page</a> opens another page that looks like a mock
+                    <a href="../static/personality.html?persona=Earthling"> Twitter account for each persona. </a>The 'tweets' contain <a href="https://en.wikipedia.org/wiki/Sankey_diagram">sankey diagrams</a> that break down the big five personality traits and a little bar chart that shows the combined trait measurements.</p>
+                <p>Each page has a video embedded, and has links to wikipedia articles about the albums from that persona. Listen to the music, follow the album links, read the personality data. How does the data correspond to that persona?</p>
+
             </div>
             <div id="panelb" class="panel">
+                <p>Displaying this as a Twitter page was a design idea to emphasize the theme of persona. This project considers changes too - it wants to reflect on changes in persona visually and through mining the data within the songs over time.</p>
                 <p>From the main view you can also find a link to <a href="../static/comparison.html">a page which shows the big five traits over time</a>, and per persona.</p>
                 <p>A few things stood out to me in this data. For instance, in 1975 - the Thin White Duke period - Bowie himself suggested this was his darkest most unlike able persona - you can see the openness trait dips significantly.</p>
                 <p>Curiously for the same period this was when his lyrics were most agreeable.</p>
                 <p> His lyrics were not agreeable across the personas at all - Bowie <a href="http://www.theguardian.com/music/musicblog/2016/feb/19/david-bowie-dave-grohl-coldplay-10-things-turned-down">really challenged authority</a> - maybe part of why he appealed so much. </p>
                 <p> There are also controls to toggle between the contributing sub-traits. This view shows how we can track personality over time.</p>
-                <p>Finally there is a view to <a href="../persona.html">find your inner Bowie</a>. It reads your tweets and maps to the closest markers of one of the personas. We show this comparison in overlapping <a href="https://en.wikipedia.org/wiki/Radar_chart">radar charts</a>. We've used a range of visualizations to examine the personalities from different angles.</p>
+                <p>Finally there is a view to <a href="../persona.html">find your inner Bowie</a>. It reads your tweets and maps the personality insight of them to the closest Bowie persona markers. We show this comparison in overlapping <a href="https://en.wikipedia.org/wiki/Radar_chart">radar charts</a>. We've used a range of visualizations to examine the personalities from different angles.</p>
                 <p>This site was hand crafted with css/html - no jquery, no bootstrap ... Just plain <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes">css flex layouts</a> ...</p>
                 <p> The main Bowie images were all drawn in illustrator based on the same 'nude' Bowie model! Wanted a consistent, colorful, fun but respectful way to navigate his personalities over time.</p>
                 <p> Used <a href="http://www.pantone.com/pages/fcr/?season=spring&year=2016&pid=11">Pantone colors of spring 2016</a> as a palette</p>
@@ -47,11 +50,13 @@
         </div>
         <div class="narrative borderless">
             <div class="widepanel">
-                <p>This project is built and runs on
-                    <a href="https://bluemix.net"><strong>IBM Bluemix</strong></a></p>
+                <p>This project is built and runs happily on
+                    <a href="https://bluemix.net"><strong>IBM Bluemix</strong></a> using a Python runtime</p>
                 <p>It was designed and developed by <a href="https://twitter.com/@antonmc">Anton McConville</a> and <a href="https://twitter.com/cphrmky">Matt Eldridge</a></p>
-                <p>We're happy to share our <a href="https://github.com/IBM-Bluemix/ziggy">repo</a> with an Apache licence</p>
+                <p>We're pleased to share our <a href="https://github.com/IBM-Bluemix/ziggy">repo</a> with an Apache licence</p>
                 <p>The beautiful 'Bowie' <a href=" http://www.bowieblackstar.net/ "> Blackstar artwork</a> was opensourced for non profit use</p>
+                <p>This site is not for profit - it was made for reflection. We share no lyrics, just generated analysis</p>
+                <p> All of the persona sketches are original art for this site</p>
             </div>
         </div>
     </div>

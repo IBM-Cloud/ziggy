@@ -18,7 +18,7 @@ import requests
 from flask import Flask, jsonify
 from cloudant.account import Cloudant
 from watson_developer_cloud import PersonalityInsightsV2 as PersonalityInsights
-from watson_developer_cloud import ToneAnalyzerV3Beta as ToneAnalyzer
+from watson_developer_cloud import ToneAnalyzerV3Beta 
 from twitter import *
 from scipy.spatial import distance
 
@@ -43,6 +43,13 @@ if 'credentials' not in WATSON:
     raise RuntimeError("Cannot connect to Watson.  Credentials not found for personality insights.")
 else:
     personality_insights = PersonalityInsights(username=WATSON['credentials']['username'], password=WATSON['credentials']['password'])
+    
+TONE = json.loads(os.environ['VCAP_SERVICES'])['tone_analyzer'][0]
+if 'credentials' not in TONE:
+    raise RuntimeError("Cannot connect to Watson.  Credentials not found for personality insights.")
+else:
+    tone_analyzer = ToneAnalyzerV3Beta(username=TONE['credentials']['username'], password=TONE['credentials']['password'], version='2016-02-11')
+    
 
 CLOUDANT = json.loads(os.environ['VCAP_SERVICES'])['cloudantNoSQLDB'][0]
 if 'credentials' not in CLOUDANT:
@@ -55,6 +62,10 @@ databases = ['personas', 'albums', 'songs']
 for db in databases:
     if db not in client.all_dbs():
         raise RuntimeError("Database " + db + " not found, please ensure you have the needed data.")
+
+cached_tone = {}
+for persona in client['personas']:
+    cached_tone[persona['_id']] = None
 
 cached_persona_insights = {}
 for persona in client['personas']:
@@ -173,6 +184,21 @@ def GetPersona(persona):
         insight = cached_persona_insights[persona]
 
     return jsonify(results=insight)
+
+@app.route('/api/tone/<persona>')
+def GetTone(persona):
+        
+    if cached_tone[persona] is None:
+        
+        personality = assemble_persona_text(persona)
+        
+        insight = tone_analyzer.tone(json.dumps({'text':personality, 'contenttype': 'text/html'}))
+        cached_tone[persona] = insight
+    else:
+        insight = cached_tone[persona]
+
+    return jsonify(results=insight)
+
 
 @app.route('/api/collected')
 def Collected():
