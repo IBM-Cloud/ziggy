@@ -36,10 +36,47 @@ http://blog.danwin.com/examples-of-web-scraping-in-python-3-x-for-data-journalis
 1. Create services in your Bluemix org and space that will align with the services expected in `manifest.yml`.
     * `cf create-service cloudantNoSQLDB Shared cloudant_ziggy`
     * `cf create-service personality_insights tiered insights_ziggy`
+    * `cf create-service tone_analyzer tiered tone_ziggy`
     * Once the application is running be sure to initially request `/setup` from a browser to cache all personas.
+    
+##### Lyrics
 
-##### ToDo: Document needed lyrics database...  Probably can't include ziggy-scrape repo if this is made public.
+This project depends on a private song database. For rights reasons it cannot share lyrics! You'll need to create a database of lyrics to work with - while deploying the Bowie app as is may be interesting, it might be fun to use the same approach with a different artist.
 
+The song database is a list of json documents that take this structure:
+
+{
+  "_id": "SONG NAME",
+  "url": "URL to song ( optional )",
+  "name": "SONG NAME",
+  "lyrics": "SONG LYRICS"
+}
+
+The albums database is a list of json documents that take this structure:
+
+{
+  "_id": "ALBUM NAME",
+  "songs": [
+    "SONG ONE",
+    "SONG TWO",
+    "SONG THREE",
+    "SONG FOUR",
+    "SONG FIVE",
+    "SONG SIX",
+    "SONG SEVEN",
+    "SONG EIGHT",
+    "SONG NINE",
+    "SONG TEN"
+  ]
+}
+
+Where the song names match to ids of the songs in the songs database
+
+It is important that the song name is the same in the name and _id fields, as this is used as a key.
+
+The personas.json document would also need to change if you choose a different artist, that document lists personas where each persona has a set of albums that need to match the ALBUM NAME in the id of an album document. You can see personas.json for Bowie in the code.
+
+Assuming you took a persona type approach for another artist, you would need to include some new artwork too! We'd be glad to see insights on other artists, so let us know if you do :)
 
 
 ##### API routes
